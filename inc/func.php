@@ -169,12 +169,12 @@ function AgregaDispersores($cad){
  }
 
  function charset($texto){
-  $texto = str_replace("ï¿½","&aacute;",$texto);
-  $texto = str_replace("ï¿½","&eacute;",$texto);
-  $texto = str_replace("ï¿½","&iacute;",$texto);
-  $texto = str_replace("ï¿½","&oacute;",$texto);
-  $texto = str_replace("ï¿½","&uacute;",$texto);
-  $textoC = str_replace("ï¿½","&ntilde;",$texto);
+  $texto = str_replace("á","&aacute;",$texto);
+  $texto = str_replace("é","&eacute;",$texto);
+  $texto = str_replace("í","&iacute;",$texto);
+  $texto = str_replace("ó","&oacute;",$texto);
+  $texto = str_replace("ú","&uacute;",$texto);
+  $textoC = str_replace("ñ","&ntilde;",$texto);
   return $textoC;
  }
 

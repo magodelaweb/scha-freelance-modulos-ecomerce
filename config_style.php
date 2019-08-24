@@ -48,26 +48,26 @@ var GB_ROOT_DIR = "/include/greybox/";
 <script type="text/javascript">
 $(window).load(function() {
         $('#slider1').nivoSlider({
-			animSpeed:500,	
+			animSpeed:500,
 			pauseTime:5000
 		});
         $('#slider2').nivoSlider({
-			animSpeed:500,	
+			animSpeed:500,
 			pauseTime:5000
 		});
         $('#slider3').nivoSlider({
-			animSpeed:500,	
+			animSpeed:500,
 			pauseTime:5000
 		});
         $('#slider4').nivoSlider({
-			animSpeed:500,	
+			animSpeed:500,
 			pauseTime:5000
 		});
         $('#slider5').nivoSlider({
-			animSpeed:500,	
+			animSpeed:500,
 			pauseTime:5000
 		});
-	$('#news-container').vTicker({ 
+	$('#news-container').vTicker({
 		speed: 500,
 		pause: 3000,
 		animation: 'fade',
@@ -75,7 +75,7 @@ $(window).load(function() {
 		showItems: 3
 	});
 	$("#easyslider").easySlider({
-		auto: true, 
+		auto: true,
 		numeric: true,
 		pause:	5000,
 		continuous: true
@@ -92,23 +92,23 @@ $(window).load(function() {
 	    speed: 1500,
 		visible:1
 	});
-	
+
     });
 </script>
 
 <script type="text/javascript">
-	$(document).ready(function(){ 
-		$("#izqmenu li,#cabmenu li").hover( function() { $(this).addClass("iehover"); }, function() { $(this).removeClass("iehover"); } ); 
+	$(document).ready(function(){
+		$("#izqmenu li,#cabmenu li").hover( function() { $(this).addClass("iehover"); }, function() { $(this).removeClass("iehover"); } );
 	});
 </script>
 <script language="javascript">
-function ventanapopup(idcodigo,wancho,walto) 
+function ventanapopup(idcodigo,wancho,walto)
 {	window.open("/ventana.php?ids="+idcodigo, "", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,top=50,left=200,resizable=no,width="+wancho+",height="+walto+"")
-}               
-</script> 
+}
+</script>
 </head>
 <body >
-<?php 
+<?php
 
 $sql_website = "SELECT * FROM estilopagina where ccodplantilla='".$webplan."'";
 $res_website = db_query($sql_website);
@@ -129,7 +129,7 @@ while ($row_website = db_fetch_array($res_website))
 	<div id="cuerpo">
     <?php  if ($webestilo == 1 or $webestilo == 3){ ?>
 		<div id="columnaizquierda"><?php  include "incizquierda.php"?></div>
-    <?php  } ?>		
+    <?php  } ?>
 		<div id="columnacentro">
         <?php  if (!empty($_GET['idsec'])) { ?>
             <div id="pagetitulo"><?php  include "modulos/web_ruta.php"?></div>
@@ -141,7 +141,7 @@ while ($row_website = db_fetch_array($res_website))
 		</div>
     <?php  if ($webestilo == 2 or $webestilo == 3){ ?>
 		<div id="columnaderecha"><?php  include "incderecha.php"?></div>
-    <?php  } ?>		
+    <?php  } ?>
 	</div>
 	<div id="piecontenido"><?php  include "incpiecontenido.php"?></div>
 	<div id="piemenu"><?php  include "incpiemenu.php"?></div>

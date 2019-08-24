@@ -35,7 +35,7 @@ function crearurl_articulo($articulocod, $clase){
 		$urlweb .= $row_url['camiseccion'].'/';
 	}
 	return $urlweb;
-        //***Anotaci�n por Arturo Martinez: "Esta funcion es llamada por los art�culos (por ejemplo las fotos de los camiones)"
+        //***Anotación por Arturo Martinez: "Esta funcion es llamada por los artículos (por ejemplo las fotos de los camiones)"
 }
 
 function url_amigable($url) {
