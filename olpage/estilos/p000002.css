@@ -1,0 +1,505 @@
+
+* { margin: 0; padding: 0; }
+
+body {
+	min-width:980px; ;
+	width: 100%; background: url('planbasic/bg2.jpg') no-repeat scroll center top #2d5a05;
+	margin-top:0px;
+	margin-bottom:0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	line-height: 1.5em;	
+	color:#000000;
+
+}
+
+p  {
+	text-decoration:none;
+	color:#000000;
+	}
+a  {
+	text-decoration:none;
+	color:#007f7f;
+}
+
+a:hover {
+	color:#005fbf;
+}
+
+
+h1, h2, h6 {
+	clear: both;
+}
+
+h1 {
+	font-family:Arial,Helvetica,sans-serif;
+	font-size: 28px;
+	line-height: 40px;
+	letter-spacing: -1px;
+	color:#00bfbf;
+	margin-top:5px;
+	margin-bottom:10px;
+	line-height:1.2em;
+}
+h2 {
+	font-family:'Trebuchet MS',Trebuchet,Arial,Helvetica,sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: bold;
+	text-transform: normal;
+	line-height: 1.2em;
+	color:#336699;
+}
+h5 { 
+	margin-bottom:10px;
+}
+h6 {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:0.75em;
+	font-weight:normal;
+	letter-spacing: -1px;
+	line-height: 1.2em;
+	color:#999999;
+}
+
+
+
+#cabecera
+{
+	overflow: hidden;
+    margin: 0px auto 0px auto;
+	padding:0px;
+	width:980px;
+	height:100px;
+	background-color:#;
+	background-image: url('planbasic/');
+} 
+#cabeceramenu
+{
+	overflow: visible;
+    margin: 0px auto 0px auto;
+	padding:0px;
+	width:980px;
+	height:40px;
+	background:# url('planbasic/menucabecera.png');
+	z-index:200;
+}
+#cabeceracontenido
+{
+	overflow: hidden;
+    margin: 0px auto 0px auto;
+	padding:0px;
+	width:980px;
+	height:px;
+	background:#FFFFFF url('planbasic/');
+	z-index:0;
+}
+
+#cuerpo {
+    overflow: hidden;
+    margin: 0px auto 0px auto;
+	padding:0px;
+	height: auto !important;
+	min-height:450px;
+	\ height:450px;
+	width:980px;
+	background-color:#ffffff;
+	background-image: url('planbasic/');
+	padding-top:5px;
+}
+#columnaizquierda{
+	width:0px;
+	float: left;
+	padding:0px;
+    text-align: left;
+}
+#columnacentro {
+	width:820px;
+	padding-right: 0px;
+	padding-left: 0px;
+	float: left;
+	
+}
+#columnaderecha {
+	width:160px;
+	float: left;
+	padding:0px;
+    text-align: left;
+}
+#piecontenido
+{
+	overflow: hidden;
+    margin: 0px auto 0px auto;
+	padding:0px;
+	width:980px;
+	height:px;
+	background:# url('planbasic/');
+} 
+#piemenu
+{
+	overflow: hidden;
+    margin: 0px auto 0px auto;
+	padding:0px;
+	width:980px;
+	height:35px;
+	background:#ffffff url('planbasic/menupie.jpg');
+} 
+#pie
+{
+	overflow: hidden;
+    margin: 0px auto 0px auto;
+	padding:0px;
+	width:980px;
+	height:80px;
+	background:#d9dbdd url('planbasic/');
+}
+.piepaginatexto {
+	overflow: hidden;
+    margin: 0px auto 0px auto;
+	padding:0px;
+	width:980px;
+	color:#000;
+	text-decoration:none;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	text-align:center;
+}
+
+
+
+ul#cabmenu { 
+	margin: 0; 
+	padding: 0; 
+	list-style: none; 
+	position: relative; 
+	z-index:199;
+	padding-left:10px;
+	padding-right:10px;
+	float:right;
+}
+
+ul#cabmenu ul {
+ width: 160px; /* Sub Menu Width */
+ margin: 0;
+ list-style: none;
+ display: none;
+ position: absolute;
+ top: 100%;
+ left: 0;
+}
+
+ul#cabmenu ul ul,ul#cabmenu ul ul ul { top: 0; left: 100%; }
+
+ul#cabmenu li { 
+	float: left; 
+	display: inline; 
+	position: relative;
+	}
+ul#cabmenu ul li { width: 100%; display: block; }
+
+/* Root Menu */
+ul#cabmenu a {
+	padding-top: 10px;
+	float: left;
+	display: block;
+	font-family: arial, helvetica;
+	font-weight:bold;
+	text-align:center;
+	height:30px;
+	width:120px;
+	background-color:#ffffff;
+	background-image:url('planbasic/menusup.jpg');
+	color:#000000;
+
+}
+
+/* Root Menu Hover Persistence */
+ul#cabmenu a:hover,ul#cabmenu li:hover a,ul#cabmenu li.iehover a {
+	background-color:#ffffff;
+	background-image:url('planbasic/menusupactive.jpg');
+	color:#ffffff; 
+}
+
+
+/* 2nd Menu */
+ul#cabmenu li:hover li a,ul#cabmenu li.iehover li a {
+	float: none;
+	text-align:left;
+	padding-left:10px;
+	background-color:#ffffff;
+	background-image:none;
+	color:#000000;
+	border-bottom:#ffffff solid 1px;
+	width:150px;
+ 
+}
+
+/* 2nd Menu Hover Persistence */
+ul#cabmenu li:hover li a:hover,ul#cabmenu li:hover li:hover a,ul#cabmenu li.iehover li a:hover,ul#cabmenu li.iehover li.iehover a {
+	background-color:#ffffff;
+	background-image:none;
+	color:#ffffff; 
+	border-left:#117fc7 solid 1px;
+}
+
+/* 3rd Menu */
+ul#cabmenu li:hover li:hover li a,ul#cabmenu li.iehover li.iehover li a {
+	background-color:#ffffff;
+	background-image:none;
+	color:#000000;
+	border-left:#117fc7 solid 1px;
+}
+
+/* 3rd Menu Hover Persistence */
+ul#cabmenu li:hover li:hover li a:hover,ul#cabmenu li:hover li:hover li:hover a,ul#cabmenu li.iehover li.iehover li a:hover,ul#cabmenu li.iehover li.iehover li.iehover a {
+	background-color:#ffffff;
+	background-image:none;
+	color:#ffffff; 
+	border-left:#117fc7 solid 1px;
+}
+
+/* 4th Menu */
+ul#cabmenu li:hover li:hover li:hover li a,ul#cabmenu li.iehover li.iehover li.iehover li a {
+	background-color:#ffffff;
+	background-image:none;
+	color:#000000;
+}
+
+/* 4th Menu Hover */
+ul#cabmenu li:hover li:hover li:hover li a:hover,ul#cabmenu li.iehover li.iehover li.iehover li a:hover {
+	background-color:#ffffff;
+	background-image:none;
+	color:#ffffff; 
+}
+
+/* Hover Function - Do Not Move */
+ul#cabmenu li:hover ul ul,ul#cabmenu li:hover ul ul ul,ul#cabmenu li.iehover ul ul,ul#cabmenu li.iehover ul ul ul { display: none; }
+ul#cabmenu li:hover ul,ul#cabmenu ul li:hover ul,ul#cabmenu ul ul li:hover ul,ul#cabmenu li.iehover ul,ul#cabmenu ul li.iehover ul,ul#cabmenu ul ul li.iehover ul { display: block; }
+
+
+
+
+#menupie
+{
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:0px;
+	float:right;
+}
+#menupie li
+{
+	display: block;
+	float: left;
+	width: 120px;
+	margin: 0;
+	padding:0px;
+}
+#menupie li a
+{
+	display: block;
+	width: 100%;
+	padding-top:10px;
+	height:30px;
+	\ height:40px;
+	background:#ffffff url('planbasic/menusup.jpg');
+	font-family: arial, helvetica;
+	font-weight:bold;
+	font-size:0.9em;
+	color:#000000;
+	text-align:center;
+}
+#menupie li a { width: auto; }
+#menupie li#active a
+{
+	color:#ffffff;
+	background:#ffffff url('planbasic/menusupactive.jpg');
+}
+#menupie li a:hover, 	#menupie li#active a:hover
+{
+	color:#ffffff;
+	background:#ffffff url('planbasic/menusupactive.jpg');
+}
+
+
+
+ul#izqmenu,ul#izqmenu li,ul#izqmenu ul {
+ width:0px; /* Menu Width */
+ margin: 0;
+ list-style: none;
+}
+
+ul#izqmenu li { float: left; position: relative;  width: 100%; }
+ul#izqmenu li.iehover { z-index: 1000; /* IE z-index bugfix */ }
+
+ul#izqmenu ul {
+ display: none;
+ position: absolute;
+ top: 0;
+ left:0px;
+ / left: 100%;
+ z-index: 9999;
+ 
+}
+
+#izqmenu li#menuizqtitulo 
+{
+	height:40px;
+	background-image:url('planbasic/menuizqtitulo.jpg');
+	background-color:#ffffff;
+}
+#izqmenu li#menuizqtitulo p
+{
+	color:#ffffff;
+	margin-left:20px;
+	margin-top:10px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-weight:bold;
+	font-size: 1.1em;
+	
+}
+
+/* Root Menu */
+ul#izqmenu a {
+ padding: 7px 0px 0px 20px;
+ display: block;
+ background-image:url('planbasic/menuizqitem.jpg');
+ background-color:#c2c8cd;
+ color:#000000;
+ font: bold 11px Arial, sans-serif;
+ text-decoration: none;
+ height:20px;
+}
+
+/* Root Menu Hover Persistence */
+ul#izqmenu a:hover,ul#izqmenu li:hover a,ul#izqmenu li.iehover a {
+ background-image:url('planbasic/menuizqitem.jpg');
+ background-color:#c2c8cd;
+ color:#000000;
+}
+
+/* 2nd Menu */
+ul#izqmenu li:hover li a,ul#izqmenu li.iehover li a {
+ float: none;
+ background: #1f5c79;
+}
+
+/* 2nd Menu Hover Persistence */
+ul#izqmenu li:hover li a:hover,ul#izqmenu li:hover li:hover a,ul#izqmenu li.iehover li a:hover,ul#izqmenu li.iehover li.iehover a {
+ background: #999;
+}
+
+/* 3rd Menu */
+ul#izqmenu li:hover li:hover li a,ul#izqmenu li.iehover li.iehover li a {
+ background: #999;
+}
+
+/* 3rd Menu Hover Persistence */
+ul#izqmenu li:hover li:hover li a:hover,ul#izqmenu li:hover li:hover li:hover a,ul#izqmenu li.iehover li.iehover li a:hover,ul#izqmenu li.iehover li.iehover li.iehover a {
+ background: #666;
+}
+
+/* 4th Menu */
+ul#izqmenu li:hover li:hover li:hover li a,ul#izqmenu li.iehover li.iehover li.iehover li a {
+ background: #666;
+}
+
+/* 4th Menu Hover */
+ul#izqmenu li:hover li:hover li:hover li a:hover,ul#izqmenu li.iehover li.iehover li.iehover li a:hover {
+ background: #333;
+}
+
+/* Hover Function - Do Not Move */
+ul#izqmenu li:hover ul ul,ul#izqmenu li:hover ul ul ul,ul#izqmenu li.iehover ul ul,ul#izqmenu li.iehover ul ul ul { display: none; }
+ul#izqmenu li:hover ul,ul#izqmenu ul li:hover ul,ul#izqmenu ul ul li:hover ul,ul#izqmenu li.iehover ul,ul#izqmenu ul li.iehover ul,ul#izqmenu ul ul li.iehover ul { display: block; }
+
+
+
+#seccionopciones{
+	height:20px;
+	text-align:right;
+	margin-top:10px;
+	
+}
+
+#pagetitulo {
+    margin: 0px auto 0px auto;	
+	background-image: url('planbasic/contenidosup.jpg');
+	margin-right:15px;
+	margin-left:15px;
+}
+#pagetitulo .miga {
+	padding-top:10px;
+	border-bottom:#000000 solid 1px;
+}
+
+#pagecontenido {
+	margin-right:15px;
+	margin-left:15px;
+	margin-top:0px;	
+}
+#pagepie {
+	height:15px;
+	margin-left:15px;
+	margin-right:15px;
+}
+
+
+#dermenu {  
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+#dermenu li {
+	width:100%;
+	text-align:left;
+}
+#dermenu li a {
+	display:block;
+	height:23px;
+	\ height:28px;	
+	padding-top:5px;
+	padding-left:30px;
+	color:#000000;
+	background:#c2c8cd url('planbasic/menuizqitem.jpg');
+	text-decoration:none;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:13px;
+	
+}
+#dermenu li#activemenu a
+{
+	color:#000000;
+	background:#e5e5e5 url('planbasic/menuizqitem.jpg');
+}
+#dermenu li a:hover, 	#dermenu li#activemenu a:hover
+{
+	color:#000000;
+	background:#e5e5e5 url('planbasic/menuizqitem.jpg');
+}
+#dermenu li#menudertitulo 
+{
+	height:30px;
+	\ height:40px;	
+	padding-top:10px;
+	background:#ffffff url('planbasic/menuizqtitulo.jpg');
+}
+#dermenu li#menudertitulo span
+{
+	color:#ffffff;
+	padding-left:30px;
+	font-family: 'Lucida Sans', sans-serif, verdana, arial, helvetica;
+	font-weight:bold;
+	font-size: 1.2em;
+	font-variant: small-caps;
+}
+#dermenu li#menuderqpie
+{
+	height:0px;
+	background:#FFFFFF url('planbasic/');
+}
+
+
+

@@ -1,0 +1,10 @@
+RewriteEngine On
+Options +FollowSymLinks
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)$ index.php?idsec=$1 [L]
+RewriteRule ^(.*)/(.*)/(.*)/(.*)/(.*)$ index.php?idsec=$1&idsec2=$2&idsec3=$3&idsec4=$4&idsec5=$5 [L]
+RewriteRule ^(.*)/(.*)/(.*)/(.*)$ index.php?idsec=$1&idsec2=$2&idsec3=$3&idsec4=$4 [L]
+RewriteRule ^(.*)/(.*)/(.*)$ index.php?idsec=$1&idsec2=$2&idsec3=$3 [L]
+RewriteRule ^(.*)/(.*)$ index.php?idsec=$1&idsec2=$2 [L]
+ErrorDocument 404 /404.php

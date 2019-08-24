@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gallery>
+    <album id="ssp1" lgPath="webfiles/fotos/" tnPath="webfiles/fotos/" title="Album One" description="Description of Album One" tn="webfiles/fotos/preview.jpg">
+        <img src="slide1.jpg" title="" caption="" link="" target="_blank" pause="" vidpreview="" />
+		<img src="slide2.jpg" title="" caption="" link="" target="_blank" pause="" vidpreview="" />
+		<img src="slide3.jpg" title="" caption="" link="" target="_blank" pause="" vidpreview="" />
+		<img src="slide4.jpg" title="" caption="" link="" target="_blank" pause="" vidpreview="" />
+    </album>
+</gallery>

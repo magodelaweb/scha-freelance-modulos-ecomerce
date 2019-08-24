@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>	
+	<meta charset="UTF-8">
+	<title>Cropper</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">	
+	<link  href="css/cropper.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="js/cropper.js"></script>
+</head>
+<body>
+	<div class="card">
+	  <div class="card-body">
+	  	<figure id="figBox" >
+	  		<figcaption>Boxes</figcaption>
+	  		<img id="imgBox" src="assets/img/box.png" alt="imagen de boxes" width="496px" height="496px" border="0" />
+	  	</figure>    
+			  
+	  </div>
+	</div>
+
+	<input type="hidden" id="hCoord" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
+	
+	<script>
+		$(function() {
+		  	const image = document.getElementById('imgBox');
+		  	var textCoord="171.55318087064305,161.55770686222957,307.8736985426683,161.55770686222957,307.8736985426683,195.63782536433294,171.55318087064305,195.63782536433294";
+			var arrCoord=textCoord.split(",");
+			var x=parseFloat(arrCoord[0]);
+			var y=parseFloat(arrCoord[1]);
+			var w=parseFloat(arrCoord[2])-x;
+			var h=parseFloat(arrCoord[5])-y;
+			const cropper = new Cropper(image, {			  
+			  viewMode : 3,
+			  zoomable : false,
+			  scalable : false,
+			  data:{
+			  	x:x,
+			  	y:y,
+			  	width:w,
+			  	height:h,
+			  	rotate:0
+			  },
+			  crop(event) {
+			  	var hCoord = $("#hCoord");
+			  	var x1=event.detail.x;
+			  	var y1=event.detail.y;
+			  	var x2=event.detail.x+event.detail.width;
+			  	var y2=event.detail.y;
+			  	var x3=event.detail.x+event.detail.width;
+			  	var y3=event.detail.y+event.detail.height;
+			  	var x4=event.detail.x;
+			  	var y4=event.detail.y+event.detail.height;
+			    hCoord.val(x1+","+y1+","+x2+","+y2+","+x3+","+y3+","+x4+","+y4);			    
+			  },
+			});
+		});
+	</script>
+</body>
+</html>

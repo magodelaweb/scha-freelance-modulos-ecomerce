@@ -1,0 +1,60 @@
+.mapify-hover{
+	fill:rgba(40,40,40,0.75);
+	stroke: #fff;
+	stroke-width: 2;
+}
+.mapify-ocupado{
+	fill:rgba(227,30,14,0.75);
+	stroke: #fff;
+	stroke-width: 2;
+}
+img {
+  max-width: 100%; /* This rule is very important, please do not ignore this! */
+}
+#figBox{
+  max-width: 496px;
+}
+
+#figUpload{
+	height: 100%;
+    text-align: center;
+}
+
+body {
+	padding-bottom: 2rem;
+	padding-top: 4rem;
+}
+.row {
+	margin-bottom: 1rem;
+}
+[class*="col-"] {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+hr {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+#files {
+    overflow-y: scroll !important;
+    min-height: 320px;
+}
+@media (min-width: 768px) {
+	#files {
+		min-height: 0;
+	}
+}
+#debug {
+	overflow-y: scroll !important;
+	height: 180px;	
+}
+
+.dm-uploader {
+	border: 0.25rem dashed #A5A5C7;
+	text-align: center;
+}
+.dm-uploader.active {
+	border-color: red;
+
+	border-style: solid;
+}

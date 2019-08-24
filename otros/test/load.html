@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>	
+	<meta charset="UTF-8">
+	<title>Load Plano</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">	
+	<link rel="stylesheet" href="css/uploader.min.css">	
+	<link rel="stylesheet" href="css/style.css">	
+</head>
+<body>
+	<main role="main" class="container">
+	 	<div class="row">	 		
+	        <div class="col-md-12 col-sm-12">	          
+	          <!-- Our markup, the important part here! -->
+	          <form class="mb-3 dm-uploader" id="drag-and-drop-zone">
+				  <div class="form-row">
+				  	<div class="col-md-12 col-sm-12">
+			          <div class="card h-100">
+			            <figure id="figUpload">
+			            	<img src="https://danielmg.org/assets/image/noimage.jpg?v=v10" alt="plano" id="plano" />
+			            </figure>
+			          </div>
+	        		</div> 
+				    <div class="col-md-12 col-sm-12">
+				      <div class="from-group mb-2">
+				        <label>Agregar Imagen</label>
+				        <input type="text" class="form-control" aria-describedby="fileHelp" placeholder="No se ha seleccionado ningun archivo nuevo..." readonly="readonly">
+
+				        <div class="progress mb-2 d-none">
+				          <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0">
+				            0%
+				          </div>
+				        </div>
+
+				      </div>
+				      <div class="form-group">
+				        <div role="button" class="btn btn-primary mr-2">
+				          <i class="fa fa-folder-o fa-fw"></i> Explorador de archivos
+				          <input type="file" title="Haga click para agregar archivos">
+				        </div>
+				        <small class="status text-muted">Seleccione un archivo o arrástrelo a esta área..</small>
+				      </div>
+				    </div>				    
+				  </div>
+				</form><!-- /uploader -->	          	
+	        </div>	
+	               
+      	</div><!-- /file list -->  
+	    <!--div class="row">
+	    	<div class="col-12">
+	    		<div class="card h-100">
+	    			<div class="card-body">
+	    				<div class="alert alert-info" role="alert">
+					        More setup demos on: <a href="https://danielmg.org/demo/java-script/uploader/basic">https://danielmg.org/demo/java-script/uploader/basic</a>
+				      	</div>
+	    			</div>	        			
+	    		</div>	        		
+	    	</div>	        			      
+	    </div-->
+    <div class="row">
+        <div class="col-12">
+           <div class="card h-100">
+            <div class="card-header">
+              Mensajes de estado de la carga de archivos
+            </div>
+
+            <ul class="list-group list-group-flush" id="debug">
+              <li class="list-group-item text-muted empty">Cargando scripts....</li>
+            </ul>
+          </div>
+        </div>
+      </div> 
+	</main>	  
+
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
+	<script src="js/uploader.min.js"></script>
+	<script src="js/ui.js"></script>
+	<script>
+		$(function() {
+		  	$('#drag-and-drop-zone').dmUploader({ //
+		    url: 'backend/upload.php',
+		    maxFileSize: 3000000, // 3 Megs max
+		    multiple: false,
+		    allowedTypes: 'image/*',
+		    extFilter: ['jpg','jpeg','png','gif'],
+		    onDragEnter: function(){
+		      // Happens when dragging something over the DnD area
+		      this.addClass('active');
+		    },
+		    onDragLeave: function(){
+		      // Happens when dragging something OUT of the DnD area
+		      this.removeClass('active');
+		    },
+		    onInit: function(){
+		      // Plugin is ready to use
+		      ui_add_log('No se ha seleccionado ningun archivo nuevo', 'info');
+
+		      this.find('input[type="text"]').val('');
+		    },
+		    onComplete: function(){
+		      // All files in the queue are processed (success or error)
+		      ui_add_log('Todos los procesos han finalizado correctamente');
+		    },
+		    onNewFile: function(id, file){
+		      // When a new file is added using the file selector or the DnD area
+		      ui_add_log('New file added #' + id);
+
+		      if (typeof FileReader !== "undefined"){
+		        var reader = new FileReader();
+		        //var img = this.find('img');
+		        
+		        //reader.onload = function (e) {
+		          //img.attr('src', e.target.result);
+		        //}
+		        //reader.readAsDataURL(file);
+		      }
+		    },
+		    onBeforeUpload: function(id){
+		      // about tho start uploading a file
+		      ui_add_log('Iniciando la carga de #' + id);
+		      ui_single_update_progress(this, 0, true);      
+		      ui_single_update_active(this, true);
+
+		      ui_single_update_status(this, 'Cargando...');
+		    },
+		    onUploadProgress: function(id, percent){
+		      // Updating file progress
+		      ui_single_update_progress(this, percent);
+		    },
+		    onUploadSuccess: function(id, data){
+		      //var response = JSON.stringify(data);
+
+		      // A file was successfully uploaded
+		      //ui_add_log('Server Response for file #' + id + ': ' + response);
+		      ui_add_log('Se cargó el archivo #' + id + ' COMPLETED', 'success');
+
+		      ui_single_update_active(this, false);
+
+		      // You should probably do something with the response data, we just show it
+		      this.find('input[type="text"]').val("Imagen subida correctamente!");
+
+		      ui_single_update_status(this, 'Carga completa.', 'success');
+		      cargarImagenPlano(data);
+		    },
+		    onUploadError: function(id, xhr, status, message){
+		      // Happens when an upload error happens
+		      ui_single_update_active(this, false);
+		      ui_single_update_status(this, 'Error: ' + message, 'danger');
+		    },
+		    onFallbackMode: function(){
+		      // When the browser doesn't support this plugin :(
+		      ui_add_log('Error al cargar los scripts', 'danger');
+		    },
+		    onFileSizeError: function(file){
+		      ui_single_update_status(this, 'El archivo excede el límite de tamaño', 'danger');
+
+		      ui_add_log('El archivo \'' + file.name + '\' no puede ser cargado: tamaño máximo 3MB', 'danger');
+		    },
+		    onFileTypeError: function(file){
+		      ui_single_update_status(this, 'El archivo no es de tipo imagen', 'danger');
+
+		      ui_add_log('El archivo \'' + file.name + '\' no puede ser cargado: debe ser una imagen (error de tipo de archivo)', 'danger');
+		    },
+		    onFileExtError: function(file){
+		      ui_single_update_status(this, 'Extensión de archivo no permitida', 'danger');
+
+		      ui_add_log('El archivo \'' + file.name + '\' no puede ser cargado: debe ser una imagen (error de extension)', 'danger');
+		    }
+		  });
+		});
+		function cargarImagenPlano(response){
+			var contenedorPrincipal=$("#figUpload").find("img");
+			var url="backend/"+response.path;
+			console.log(url);
+			contenedorPrincipal.attr("src",url);
+		}
+	</script>
+	<script type="text/html" id="files-template">
+      <li class="media">
+        <div class="media-body mb-1">
+          <p class="mb-2">
+            <strong>%%filename%%</strong> - Status: <span class="text-muted">Waiting</span>
+          </p>
+          <div class="progress mb-2">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" 
+              role="progressbar"
+              style="width: 0%" 
+              aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            </div>
+          </div>
+          <hr class="mt-1 mb-1" />
+        </div>
+      </li>
+    </script>
+
+    <!-- Debug item template -->
+    <script type="text/html" id="debug-template">
+      <li class="list-group-item text-%%color%%"><strong>%%date%%</strong>: %%message%%</li>
+    </script>
+</body>
+</html>

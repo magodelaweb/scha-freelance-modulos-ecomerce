@@ -1,8 +1,8 @@
 ##### Windows
 # Carpetas personalizadas
 back
-web\12172806\fotos
-web\12172806\thumbs
+web/12172806/fotos
+web/12172806/thumbs
 # Windows thumbnail cache files
 Thumbs.db
 ehthumbs.db

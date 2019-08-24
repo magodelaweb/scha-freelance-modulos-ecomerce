@@ -1,0 +1,14 @@
+<?php 
+/***********************************/
+$modulo_include="sucursal_new_inc.php";
+$modulo_buscar ="panel_menuizq.php";
+$stylo="2";
+$retorno ="sucursal.php";
+ob_start();
+session_start();
+include "../config.php";
+include "include/funciones.php";
+include "include/config_seguro.php";
+include "panel_template.php";
+/***********************************/
+?>

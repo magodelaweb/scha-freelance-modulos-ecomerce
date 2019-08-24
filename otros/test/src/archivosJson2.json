@@ -1,0 +1,61 @@
+{
+  "features": {
+    "authentication": {
+      "eci": "07",
+      "vci": "NP"
+    },
+    "reserved": [{
+      "name": "reserved1",
+      "value": "5b2b34eb4feea9208ce9da44"
+    }, {
+      "name": "reserved2",
+      "value": "5b2009074feeb01ff8b2eaf8"
+    }, {
+      "name": "reserved3",
+      "value": "5a8c9e19a272c41af8612314"
+    }, {
+      "name": "reserved4",
+      "value": "5b106b284feeb11e38433038"
+    }, {
+      "name": "reserved5",
+      "value": "box"
+    }]
+  },
+  "identifier": "8908",
+  "message": "Tu operación se ha realizado con éxito.",
+  "messageCode": "00",
+  "operation": {
+    "amount": "1500.00",
+    "currencyCode": "PEN",
+    "customer": {
+      "address": "Calle Querecotillo Mz B1 Lote 34",
+      "city": "Lima",
+      "country": "Peru",
+      "email": "2012100594@ucss.pe",
+      "lastname": null,
+      "name": null,
+      "phone": "-",
+      "state": "Lima",
+      "zip": "051 33"
+    },
+    "number": "001003",
+    "productDescription": "BOX 08VIP en Notificacion por Grupo + Admin",
+    "quantity": 0
+  },
+  "payment": {
+    "accepted": "true",
+    "bank": null,
+    "bin": "485951",
+    "cardholderInformation": {
+      "lastname": "MartinezX",
+      "name": "ArturoX"
+    },
+    "creditDebit": "CREDIT",
+    "lastPan": "0036",
+    "referenceCode": "121100",
+    "resultCode": "000",
+    "resultMessage": "Operacion Autorizada"
+  },
+  "signature": "a6c83c80f3f180fa1124d6a1519ad81cea3356dff054223902ebfcea7f2cbab8731b85ccf7b9b87ed8c126823cb913fe089815ee4dee409a8e779ff68f2c2c19",
+  "success": "true"
+}

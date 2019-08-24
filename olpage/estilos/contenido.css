@@ -1,0 +1,83 @@
+
+.negrita {
+	font-weight: bold;
+}
+
+.letracapital {
+	float: left;
+	margin: 0;
+	font-size: 3em;
+	color: #666666;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: normal;
+	padding-top: 0em;
+	padding-right: 0.1em;
+	text-transform: capitalize;
+	visibility: visible;
+	height: 1em;
+	line-height: 1em;
+	padding-bottom: 0px;
+	display: block;
+	vertical-align: baseline;
+	}
+
+.articulotitulo {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: normal;
+	color: #666666;
+	font-size: 2em;
+	line-height: 100%;
+	margin-bottom: 0.2em;
+}
+.cuadroresaltado
+{
+	border:1px solid #93b06e;
+	background-color:#d7eebb;
+	padding:2px;
+}
+
+.letraresaltado
+{
+	color:#1e83ef;
+	font-weight:bold;
+}
+.textoweb {
+	font-family: Gill Sans, Verdana;
+	font-size: 11px;
+	line-height: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2px;	
+	font-weight: bold;
+}
+.textog {
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	color: #444;
+	margin: 0;
+	padding: 0px 0px 6px 0px;
+	font-size: 51px;
+	line-height: 44px;
+	letter-spacing: -2px;
+	font-weight: bold;
+}
+.textopie {
+    font-family: Georgia,"Times New Roman",serif;
+	font-size: 10px;
+	line-height: 22px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+.textop {
+	font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+	font-weight: normal;
+    font-size: 1.75em;
+	letter-spacing: .2em;
+	line-height: 1.1em;
+	margin:0px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+
+.tabulado {
+text-indent: 2.5em
+}
