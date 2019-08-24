@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>JUVAME CMS: Sistema de administraci&oacute;n de contenidos</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 <meta http-equiv="Content-Type" content="text/xml; charset=ISO-8859-15">
 <link  href='estilos/estilo.css'     rel='stylesheet' type='text/css'>
 <script type='text/javascript' src='include/js/jsweb.js' ></script>

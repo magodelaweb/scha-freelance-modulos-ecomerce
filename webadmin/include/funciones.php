@@ -1,24 +1,51 @@
 <?php
+function addTextWatermark($src, $watermark, $save, $thumbs=false) {
+  list($width, $height) = getimagesize($src);
+  $image_color = imagecreatetruecolor($width, $height);
+  $image = imagecreatefromjpeg($src);
+  imagecopyresampled($image_color, $image, 0, 0, 0, 0, $width, $height, $width, $height);
+  $txtcolor = imagecolorallocatealpha ($image_color, 255, 255, 255,75);
+  $font = dirname(__FILE__) .'/monofont.ttf';
+  $font_size = 70; //12 thumbs
+
+  $x=$width/2-350;
+  $y=$height-50;
+  if ($thumbs){
+    $font_size = 12;
+    $x=50;
+    $y=$height-10;
+  }
+  imagettftext($image_color, $font_size, 30, $x, $y, $txtcolor, $font, $watermark);
+  if ($save<>'') {
+    imagejpeg ($image_color, $save, 100);
+  }
+  /*else {
+    header('Content-Type: image/jpeg');
+    imagejpeg($image_color, null, 100);
+  }*/
+  imagedestroy($image);
+  imagedestroy($image_color);
+}
 /*************** Funcion Base de datos ****************/
 function fechadmy($fecha){
     list($anio,$mes,$dia)=explode("-",$fecha);
     return $dia."-".$mes."-".$anio;
-}  
+}
 
 function fechaymd($fecha){
     list($dia,$mes,$anio)=explode("-",$fecha);
     return $anio."-".$mes."-".$dia;
-} 
+}
 
 function codigo_azar($length)
 {
     $str = "A1B2C3D4E5F6G7H8I9J0KLMNOPQRSTUVWXYZ";
-        
-    for($i=0;$i<$length;$i++) 
+
+    for($i=0;$i<$length;$i++)
         $key .= $str[mt_rand(0,strlen($str)-1)];
-    
+
     return $key;
-} 
+}
 
 
 function get_file_extension($filename)
@@ -34,7 +61,7 @@ function tep_redirect($url)
 	echo "</script>";
 }
 function validar_letras($cadena)
-{	if(ereg("^[a-zA-ZáéíóúñÑ\ ]+$",$cadena))	return true;
+{	if(ereg("^[a-zA-Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\ ]+$",$cadena))	return true;
 	else 								return false;
 }
 
@@ -43,7 +70,7 @@ function validar_amigable($cadena)
 	else 								return false;
 }
 function validar_fecha($cadena)
-{	
+{
 	$anho= substr($cadena,0,4);
 	$mes = substr($cadena,5,2);
 	$dia = substr($cadena,8,2);
@@ -53,75 +80,75 @@ function validar_fecha($cadena)
 		if($anho<1940 || $anho>2007)  {		return false;	}
 		else 						  {
 
-	switch ($mes) { 
-    		case '01': 
+	switch ($mes) {
+    		case '01':
 			        if($dia>=1 && $dia<=31) return true;
 					else					 return false;
-		    break; 
-		    case '02': 
-					if($anho%4==0 && $anho%100!=0 || $anho%400==0) 
+		    break;
+		    case '02':
+					if($anho%4==0 && $anho%100!=0 || $anho%400==0)
 					{	if($dia>=1 && $dia<=29)	return true;
 						else						return false;
 					}
-					else 								
+					else
 					{	if($dia>=1 && $dia<=28)	 return true;
 						else					   	  	 return false;
 					}
 			break;
-	 
-    		case '03': 
+
+    		case '03':
 			        if($dia>=1 && $dia<=31) return true;
 					else					   return false;
-			break; 
-		
-			case '04': 
+			break;
+
+			case '04':
         			if($dia>=1 && $dia<=30) return true;
 					else					   return false;
-			break; 	
-		
-			case '05': 
+			break;
+
+			case '05':
 			        if($dia>=1 && $dia<=31) return true;
 					else					   return false;
-	        break; 		
-		
-			case '06': 
+	        break;
+
+			case '06':
 			        if($dia>=1 && $dia<=30) return true;
 					else					   return false;
-		    break; 
-		
-			case '07': 
-			        if($dia>=1 && $dia<=31) return true;
-					else					   return false;
-		    break; 	
+		    break;
 
-			case '08': 
+			case '07':
 			        if($dia>=1 && $dia<=31) return true;
 					else					   return false;
-	        break; 	
-		
-			case '09': 
+		    break;
+
+			case '08':
+			        if($dia>=1 && $dia<=31) return true;
+					else					   return false;
+	        break;
+
+			case '09':
 	 			   if($dia>=1 && $dia<=30) return true;
 				   else					   return false;
-	        break; 	
-			
-			case '10': 
+	        break;
+
+			case '10':
 			        if($dia>=1 && $dia<=31) return true;
 					else					   return false;
-		    break; 	
-		
-			case '11': 
+		    break;
+
+			case '11':
         			if($dia>=1 && $dia<=30) return true;
 					else					   return false;
-		   	break; 	
-		
-			case '12': 
+		   	break;
+
+			case '12':
 			        if($dia>=1 && $dia<=31) return true;
 					else					   return false;
-		    break; 							
+		    break;
 		 	} // switch
 		}//else
 	 } // else
-	
+
 }
 
 
@@ -142,7 +169,7 @@ function restaFechas($dFecIni, $dFecFin)
 	return($dias_diferencia);
 }
 
- 
+
 
 function nombre_pais($ubigeo)
 {
@@ -186,35 +213,35 @@ function validar_email($address)
 	else		return false;
 }
 function validar_alfanum($cadena)
-{	if(ereg("^[a-zA-Z0-9áéíóúñÑ\@\_\,\.\:\ \?\-]+$",$cadena))	return true;
+{	if(ereg("^[a-zA-Z0-9ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\@\_\,\.\:\ \?\-]+$",$cadena))	return true;
 	else 								return false;
 }
 function validar_direccion($cadena)
-{	if(ereg("^[a-zA-Z0-9áéíóúñÑ\,\.\ \-]+$",$cadena))	return true;
+{	if(ereg("^[a-zA-Z0-9ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\,\.\ \-]+$",$cadena))	return true;
 	else 								return false;
 }
 function validar_numero($cadena)
-{	if(ereg("^[0-9]+$",$cadena))		return true;	
+{	if(ereg("^[0-9]+$",$cadena))		return true;
 	else 							return false;
 }
 function validar_letrasbd($cadena)
-{	if(ereg("^[a-zA-Z0-9\ \/\:]+$",$cadena))		return true;	
+{	if(ereg("^[a-zA-Z0-9\ \/\:]+$",$cadena))		return true;
 	else 							return false;
 }
 function validar_nick($cadena)
-{	if(ereg("^[a-zA-Z0-9\_\-]+$",$cadena))		return true;	
+{	if(ereg("^[a-zA-Z0-9\_\-]+$",$cadena))		return true;
 	else 									return false;
 }
 function validar_alfanumerico($cadena)
-{	if(ereg("^[a-zA-Z0-9\_]+$",$cadena))		return true;	
+{	if(ereg("^[a-zA-Z0-9\_]+$",$cadena))		return true;
 	else 									return false;
 }
 function validar_cadena($cadena)
-{	if(ereg("^[a-zA-Z0-9]+$",$cadena))		return true;	
+{	if(ereg("^[a-zA-Z0-9]+$",$cadena))		return true;
 	else 									return false;
 }
 function validar_color($cadena)
-{	if(ereg("^#.[0-9a-zA-Z]+$",$cadena))		return true;	
+{	if(ereg("^#.[0-9a-zA-Z]+$",$cadena))		return true;
 	else 									return false;
 }
 
@@ -222,28 +249,28 @@ function validar_color($cadena)
 
 
 function validar_web($cadena)
-{	if(ereg("^www.[a-zA-Z0-9\/\_\.]+$",$cadena))		return true;	
+{	if(ereg("^www.[a-zA-Z0-9\/\_\.]+$",$cadena))		return true;
 	else 							return false;
 }
 
 function validar_pagweb($cadena)
-{	if(ereg("^http://[a-zA-Z0-9\/\_\.]+$",$cadena))		return true;	
+{	if(ereg("^http://[a-zA-Z0-9\/\_\.]+$",$cadena))		return true;
 	else 							return false;
 }
 function validar_inc($cadena)
-{	if(ereg("^[a-zA-Z0-9\_\.]+$",$cadena))		return true;	
+{	if(ereg("^[a-zA-Z0-9\_\.]+$",$cadena))		return true;
 	else 							return false;
 }
 function validar_enlace($cadena)
-{	if(ereg("^http://www.[a-zA-Z0-9\/\_\.]+$",$cadena))		return true;	
+{	if(ereg("^http://www.[a-zA-Z0-9\/\_\.]+$",$cadena))		return true;
 	else 							return false;
 }
 function validar_seccion($cadena)
-{	if(ereg("^[a-zA-ZáéíóúñÑ0-9\ \_]+$",$cadena))	return true;
+{	if(ereg("^[a-zA-Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0-9\ \_]+$",$cadena))	return true;
 	else 								return false;
 }
 function validar_decimal($cadena)
-{	if(ereg("^[0-9\.]+$",$cadena))		return true;	
+{	if(ereg("^[0-9\.]+$",$cadena))		return true;
 	else 							return false;
 }
 
@@ -265,8 +292,8 @@ $date_info = getdate($first_of_month); #get info about the first day of the mont
 $month = $date_info['mon'];
 $year = $date_info['year'];
 
-//Traduzco los meses de ingles a Español
-switch ($date_info['mon']) 
+//Traduzco los meses de ingles a Espaï¿½ol
+switch ($date_info['mon'])
 {
 	case "January" : $date_info[$month]="Enero";break;
 	case "February" : $date_info[$month]="Febrero";break;
@@ -297,9 +324,9 @@ $calendar .= "<td class='titlemedium'>S</td>\n";
 $calendar .= "</tr>\n";
 
 //$weekday = $date_info['wday']-1; //Para que sea el Lunes el primer dia de la semana
-$weekday = $date_info['wday']; 
+$weekday = $date_info['wday'];
 
-$day = 1; 
+$day = 1;
 // Los primeros dias "vacios" del mes
 if($weekday > 0)
 {
@@ -322,12 +349,12 @@ while ($day <= $maxdays)
 			$colorcelda = "background-color:".$rowfecha['ccoltemporada'].";";
 	}
 
-		
+
 	// Aqui es donde le pongo lo que tiene que hacer en caso de exista enlace
 	//$link = (basename($_SERVER["PHP_SELF"]))."?fecha=".$month."/".$day."/".$year;
 	$xfecha = $day."-".$month."-".$year;
 	$link="javascript:asignartemporada('".$xfecha."')";
-	
+
 	$calendar .= "<td width='50' height=25' align='center' valign='middle' style='".$colorcelda."' ><a href=".$link.">".$day."</a></td>\n";
 	$day++;
 	$weekday++;
@@ -339,7 +366,7 @@ if($weekday != 7)
 }
 $calendar.="</tr>\n</table>\n";
 return $calendar;
-} 
+}
 
 //Formato $fecha yyyymmdd
 function nextDate($fecha,$dias) {
@@ -393,18 +420,18 @@ function getCountry($ip_address){
       curl_setopt($ch, CURLOPT_URL, $url);
       curl_setopt($ch, CURLOPT_POST,"POST");
       curl_setopt($ch, CURLOPT_POST, 1);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, "ip_address=$ip_address"); 
-      
+      curl_setopt($ch, CURLOPT_POSTFIELDS, "ip_address=$ip_address");
+
       ob_start();
-      
+
       curl_exec($ch);
       curl_close($ch);
       $cache = ob_get_contents();
       ob_end_clean();
-      
+
       $resto = strstr($cache,$inici);
       $pais = substr($resto,strlen($inici),2);
-      
+
       return $pais;
    }
 

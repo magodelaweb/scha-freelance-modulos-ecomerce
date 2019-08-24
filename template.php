@@ -55,7 +55,7 @@
 				'easingIn'      : 'easeOutBack',
 				'easingOut'     : 'easeInBack'
 			});
-      /*
+
       $('body').bind('cut copy paste', function (e) {
         $('#btnsec.btnsec').click();
         var urlscha="https://www.schasociados.com";
@@ -92,7 +92,7 @@
       	{
       		keyCtrl=false;
       	}
-      });*/
+      });
       var imgSec=$("img.segura");
       var enlaceSec=$("a.segura");
       var titSec=$("p.segura");

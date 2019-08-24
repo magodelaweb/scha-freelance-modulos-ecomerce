@@ -24,13 +24,13 @@ while ($row_contenido = db_fetch_array($sql_contenido))
 //	$_SESSION['rutaimages']="webfiles/fotos".$fechaurl;
 ?>
 <div id="capaformulario">
-<form name="form" id="form"> 
+<form name="form" id="form">
 <table border="0"   cellpadding="0" cellspacing="0" class="tablebordernew" >
 <tr>
 	<td colspan='2' class='titulo' >
         <div class="formtitulo">Detalles de una sección</div>
         <div class="formcerrar"><a href="<?=$retorno?>"><img src="estilos/images/form_close.png" border="0" /></a></div>
-    
+
 	</td>
 </tr>
 <tr>
@@ -38,7 +38,7 @@ while ($row_contenido = db_fetch_array($sql_contenido))
     <td class='colgrisend'>
 	<input type="text" name="titulo" id="titulo" maxlength="150"  class="box500" value='<?=$row_contenido['cnombre']?>' >
     </td>
-</tr>        
+</tr>
 <tr>
 	<td class='titlehome' colspan="2">Contenido</td>
 </tr>
@@ -46,7 +46,7 @@ while ($row_contenido = db_fetch_array($sql_contenido))
 	<td class='colgrishome' colspan="2">
 		<?php  $sContent = $row_contenido['cdetseccion']; ?>
 		<textarea id="contenido" name="contenido" >
-		<?php 
+		<?php
 		function encodeHTML($sHTML)
 			{
 			$sHTML=ereg_replace("&","&amp;",$sHTML);
@@ -78,7 +78,7 @@ while ($row_contenido = db_fetch_array($sql_contenido))
 
 		oEdit1.REPLACE("contenido");//Specify the id of the textarea here
 		</script>
-        
+
 	</td>
 </tr>
 <tr>
@@ -86,7 +86,7 @@ while ($row_contenido = db_fetch_array($sql_contenido))
         <input type="hidden" name="ids" id="ids" value="<?=$_GET['ids']?>">
 	    <input type="hidden" id="descripcion" name="descripcion" />
 		<input type="button" value="Aceptar"   class='cssboton' onclick="document.getElementById('descripcion').value = oEdit1.getHTMLBody(); xajax_procesar_formulario(xajax.getFormValues('form'))" />
-		<input type="Button" value="Cancelar" onclick="javascript:window.location = '<?=$retorno?>'" class='cssboton'>	
+		<input type="Button" value="Cancelar" onclick="javascript:window.location = '<?=$retorno?>'" class='cssboton'>
 	</td>
 </tr>
 </table>

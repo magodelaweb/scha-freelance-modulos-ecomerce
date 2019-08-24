@@ -1,4 +1,4 @@
-<?php  header('Content-Type: text/html; charset=ISO-8859-15'); 
+<?php  header('Content-Type: text/html; charset=ISO-8859-15');
 if ($_POST['idbuscar']=='1')
 {
 	include "../config.php";
@@ -39,8 +39,8 @@ $sql = db_query($sql_query  ." LIMIT " .$reg." , ".$item);
 <table border="0" align="center" cellpadding="0" cellspacing="0" class="tableborder" >
 	<tr>
     	<td  class='titlehome'  align="right">
-			<input type="button" name="new" value="Agregar Fotos"  onclick="javascript:window.location = 'galeriasnew.php?IDpro=<?=$_GET['IDpro']?>'"> 
-        
+			<input type="button" name="new" value="Agregar Fotos"  onclick="javascript:window.location = 'galeriasnew.php?IDpro=<?=$_GET['IDpro']?>'">
+
         </td>
 	</tr>
 	<tr >
@@ -48,7 +48,7 @@ $sql = db_query($sql_query  ." LIMIT " .$reg." , ".$item);
 	</tr>
 	<tr >
 		<td class='colblancohome' >
-<?php     
+<?php
 	if ($total == 0)
 	{
 		echo "<tr><td colspan='8' class='colgrishome' align='center' height='420'>No existen items disponibles</td></tr>";
@@ -59,17 +59,21 @@ $sql = db_query($sql_query  ." LIMIT " .$reg." , ".$item);
 		{
 	?>
 			<tr>
-                <td class='colblancohome' valign="top" >&nbsp;</td>                
+                <td class='colblancohome' valign="top" >&nbsp;</td>
 				<td class='colblancocen' valign="top" ><?=$row['cnomgaleria']?></td>
 				<td class='colgriscen' align="center" width="25"><a href="articuloedit.php?IDpro=<?=$row['ccodgaleria']?>" title='Editar'><img src="estilos/images/wp_editar.gif"  border="0"/></a> </td>
 				<td class='colgriscen' align="center" width="25"><a  onclick="javascript:elimina('<?=$row['ccodgaleria']?>');" title='Eliminar' style="cursor: pointer;"><img src="estilos/images/wp_eliminar.gif"  border="0"/></a></td>
 			</tr>
-<?php 	} 
-	 if ($row['ccodmodulo']=="1400") 
+<?php 	}
+	 if ($row['ccodmodulo']=="1400")
 	 { ?>
 
             <div id="galeriafotos">
-	            <div class="fotocontenedor1"><img src="<?=ereg_replace('fotos','thumbs',$row['cimggaleria'])?>" width="160" height="120" /><br />
+	            <div class="fotocontenedor1">
+								<a id="img" href="<?=$row['cimggaleria']?>">
+								   <img src="<?=ereg_replace('fotos','thumbs',$row['cimggaleria'])?>" width="160" height="120" />
+							  </a>
+								<br />
                 <span><?=$row['cnomgaleria']?><br /></span>
                 <span>
 	                <!--<a href="galeriafotosedit.php?IDpro=<?php //=$row['ccodgaleria']?>"><img border="0" src="estilos/images/wp_editar.gif" alt="Editar Foto"></a>-->
@@ -78,7 +82,7 @@ $sql = db_query($sql_query  ." LIMIT " .$reg." , ".$item);
                  </div>
             </div>
 
-<?php 	} 
+<?php 	}
 	}	?>
         </td>
 	</tr>

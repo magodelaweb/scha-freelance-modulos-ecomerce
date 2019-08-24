@@ -38,9 +38,9 @@ while($row  =db_fetch_array($sql))
 <tr>
 	<td width="200" class='colgrishome' height='25' align="right" >Página </td>
 	<td class='colblancocen' >
-  <?php   
+  <?php
 	$sql_page = db_query("select * from page  where  ccodpage='".$row['ccodpage']."'");
-	while($row_page = db_fetch_array($sql_page)) 
+	while($row_page = db_fetch_array($sql_page))
 	 {
 		echo $row_page['cnompage'];
 	 }
@@ -50,7 +50,7 @@ while($row  =db_fetch_array($sql))
 <tr>
   <td width="200" class='colgrishome' height='25' align="right" >Seccion Principal</td>
   <td  class='colblancocen' >/<?=crearurl_articulo($row['ccodseccion']) ?>
-  
+
   </td>
 </tr>
 <tr>
@@ -58,13 +58,13 @@ while($row  =db_fetch_array($sql))
     <td class='colblancocen' ><input name='titulo' type='text' id='titulo'  size='90'  maxlength="50" value="<?=$row['cnomseccion']?>" class="box600">	</td>
 </tr>
 
-<tr> 
+<tr>
 	<td class='colgrishome' align='right'>Tipo </td>
 	<td class='colblancocen' >
 	<select name="selectenlace" id="selectenlace" style="width:190px" class="box">
 	<?php   $tipo_enlace = db_query("select * from webparametros where ccodparametro='0005' and ctipparametro='1'");
-		while ($row_enlace = db_fetch_array($tipo_enlace)) 
-		{	
+		while ($row_enlace = db_fetch_array($tipo_enlace))
+		{
 		 if($row_enlace['cvalparametro']==$row['ctipseccion'])
 			echo '<option value='.$row_enlace['cvalparametro'].' selected>'.$row_enlace['cdesparametro'].'</option>';
 		else
@@ -80,7 +80,7 @@ while($row  =db_fetch_array($sql))
     <td class='colblancocen'>
    <select name="selectmodulo" style="width:190px" onChange="xajax_procesar_estilos(xajax.getFormValues('form'))" class="box">
 <?php 	$querysec = db_query("select * from webmodulos where cestmodulo='1'");
-	while($row_sec = db_fetch_array($querysec)) 
+	while($row_sec = db_fetch_array($querysec))
 	{	if( $row_sec['ccodmodulo']==$row['ccodmodulo'])
 			echo '<option value="' . $row_sec['ccodmodulo'].'" selected>' . $row_sec['cnommodulo'] . '</option>';
 		else
@@ -96,10 +96,10 @@ while($row  =db_fetch_array($sql))
 	<td align="center" class='colblancoend'>
 	<div id="estilos">
     <ul class="stylos">
-	<?php 
+	<?php
 	$sql_estilo = "SELECT * FROM estiloseccion WHERE cestsecestilo='1' AND ccodmodulo='".$row['ccodmodulo']."' order by ccodsecestilo";
 	$res_estilo = db_query($sql_estilo);
-	while($rowestilo = db_fetch_array($res_estilo)) 
+	while($rowestilo = db_fetch_array($res_estilo))
 	{
 		if ($rowestilo['ccodsecestilo']==$row['ccodsecestilo']) { $check = " checked";} else { $check = "";}
 		echo "<li>\n";
@@ -140,7 +140,7 @@ while($row  =db_fetch_array($sql))
 <tr>
 	<td  colspan="2" height="25" class='titlesub'>Opciones Adicionales</td>
 </tr>
-<tr> 
+<tr>
 	<td class='colgrishome' align='right'>Imagen</td>
 	<td class='colblancocen' ><input type="text" name="imagencab" id="imagencab" size="76" value="<?=$row['cimgseccion']?>" class="box500"> <input type="button" value="Seleccionar" onClick="openAsset('imagencab')" id="btnAsset" name="btnAsset"  style="height:30px;vertical-align:middle;">
     </td>
@@ -150,10 +150,10 @@ while($row  =db_fetch_array($sql))
 	<td align="center" class='colblancoend'>
 	<div id="estilos">
     <ul class="stylos">
-	<?php 
+	<?php
 	$sql_subestilo = "SELECT * FROM estiloseccion WHERE cestsecestilo='1' AND ccodmodulo='1000' order by ccodsecestilo";
 	$res_subestilo = db_query($sql_subestilo);
-	while($rowsubestilo = db_fetch_array($res_subestilo)) 
+	while($rowsubestilo = db_fetch_array($res_subestilo))
 	{
 		if ($rowsubestilo['ccodsecestilo']==$row['ccodsubestilo']) { $check = " checked";} else { $check = "";}
 		echo "<li>\n";
@@ -174,29 +174,29 @@ while($row  =db_fetch_array($sql))
 </tr>
 <tr>
     <td class='colgrishome' height='25' align="right">Orden Contenido</td>
-    <td class='colblancocen' > 
+    <td class='colblancocen' >
 	<select name="selectorden" style="width:200px"  class="box">
 	<?php   $tipo_acceso = db_query("select * from webparametros where ccodparametro='0007' and ctipparametro='1'");
-		while ($row_acceso = db_fetch_array($tipo_acceso)) 
-		{	
+		while ($row_acceso = db_fetch_array($tipo_acceso))
+		{
 		 	if($row_acceso['cvalparametro']==$row['cordseccion'])
 				echo '<option value='.$row_acceso['cvalparametro'].' selected>'.$row_acceso['cdesparametro'].'</option>';
 			else
 				echo '<option value='.$row_acceso['cvalparametro'].' >'.$row_acceso['cdesparametro'].'</option>';
 		}
 	?>
-    </select>	
+    </select>
 	</td>
 </tr>
 
 
 
-<tr><td class='colgrishome'  colspan="2"><div id="mensaje"></div></td></tr>  	   
+<tr><td class='colgrishome'  colspan="2"><div id="mensaje"></div></td></tr>
 
 <tr>
 	<td colspan="2" align="center" class='formpie'  >
 	<input type="button" value="Aceptar"   class='cssboton' onclick="xajax_procesar_formulario(xajax.getFormValues('form'))" />
-	<input type="Button" value="Cancelar" onclick="javascript:window.location = '<?=$retorno?>'" class='cssboton'>	
+	<input type="Button" value="Cancelar" onclick="javascript:window.location = '<?=$retorno?>'" class='cssboton'>
     	</td>
 </tr>
 </table>
@@ -206,19 +206,19 @@ while($row  =db_fetch_array($sql))
 <script>
 $(document).ready(function(){
 
-   $('#selectenlace').change(function() 
+   $('#selectenlace').change(function()
     {
 	if($(this).attr('value') == '1')
-	{ 
+	{
        $('#rutaenlace').attr('disabled','disabled');
 	   $('#rutaenlace').val('');
-	} 
+	}
 	else
 	{
        $('#rutaenlace').attr('disabled','');
 	}
-    }); 
-	$('#titulo').keyup(function() 
+    });
+	$('#titulo').keyup(function()
     {
 	   $('#amigable').val(convierteAlias($('#titulo').val()));
 	   $('#txttitulo').val($('#titulo').val());
