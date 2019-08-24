@@ -17,6 +17,7 @@ function addTextWatermark($src, $watermark, $save, $thumbs=false) {
   }
   imagettftext($image_color, $font_size, 30, $x, $y, $txtcolor, $font, $watermark);
   if ($save<>'') {
+    unlink($save);
     imagejpeg ($image_color, $save, 100);
   }
   /*else {

@@ -12,6 +12,7 @@ $rutathum   = '../'.$pthumbs.'/'.$nombrefoto;
 $fotosave   = '/'.$ptimage.'/'. $nombrefoto;
 if (move_uploaded_file($_FILES['Filedata']['tmp_name'], $rutafoto))
 {
+	chmod($rutafoto, 0777);
 	//Agrega código de marca de agua
 	$watermark = "www.schasociados.com"; // Add your own water mark here
 	include_once('include/thumbnail.inc.php');
@@ -21,7 +22,8 @@ if (move_uploaded_file($_FILES['Filedata']['tmp_name'], $rutafoto))
 	$thumb->crop(0,0,225,180);
 	$thumb->save($rutathum);
 	addTextWatermark($rutafoto, $watermark, $rutafoto);
-	addTextWatermark($rutathum, $watermark, $rutathum,true);
+	chmod($rutathum, 0777);
+	addTextWatermark($rutathum, $watermark, $rutathum,true);	
 //	$new_cod = $_POST['pagina'].date('ymdHis').codigo_azar(4);
 	$save_contenido= "INSERT INTO contenidogaleria
 						(
