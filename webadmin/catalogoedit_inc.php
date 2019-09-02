@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*****************************************/
 include "include/config_seguro.php";
 /*****************************************/
@@ -12,7 +12,7 @@ while ($row_contenido = db_fetch_array($sql_contenido))
 //	$_SESSION['rutaimages']="webfiles/fotos".$fechaurl;
 ?>
 <div id="capaformulario">
-<form name="form" id="form"> 
+<form name="form" id="form">
 <table border="0"  align="center" cellpadding="0" cellspacing="0"  width="980" >
 <tr>
    	<td align="left" >
@@ -22,7 +22,7 @@ while ($row_contenido = db_fetch_array($sql_contenido))
 	<td colspan='2' class='titulo' >
         <div class="formtitulo">Editar Catalogo</div>
         <div class="formcerrar"><a href="<?=$retorno?>"><img src="estilos/images/form_close.png" border="0" /></a></div>
-    
+
 	</td>
 </tr>
 <tr>
@@ -30,13 +30,13 @@ while ($row_contenido = db_fetch_array($sql_contenido))
     <td class='colgrisend'>
 	<input type="text" name="titulo" id="titulo" maxlength="150"  class="box500" value='<?=$row_contenido['cnomcontenido']?>' >
     </td>
-</tr>        
+</tr>
 <tr>
 	<td class='colgrishome' align="right">Titulo Amigable </td>
     <td class='colgrisend'>
     <input type="text" name="amigable" id="amigable"  maxlength="150" class="box500" value='<?=$row_contenido['camicontenido']?>'>
     </td>
-</tr>        
+</tr>
 <tr>
 	<td class='colgrishome' width="150"  align="right">Seccion </td>
     <td class='colgrisend'>
@@ -65,7 +65,7 @@ while($row1 = db_fetch_array($sqlsec1)) {
 	<td class='colgrishome' colspan="2">
 		<?php  $sContent = $row_contenido['cdetcontenido']; ?>
 		<textarea id="contenido_<?php echo $row_contenido['ccodseccion'];?>" name="contenido_<?php echo $row_contenido['ccodseccion'];?>" >
-		<?php 
+		<?php
 		/*function encodeHTML($sHTML)
 			{
 			$sHTML=ereg_replace("&","&amp;",$sHTML);
@@ -97,28 +97,29 @@ while($row1 = db_fetch_array($sqlsec1)) {
 
 		oEdit<?php echo $i;?>.REPLACE("contenido_<?php echo $row_contenido['ccodseccion'];?>");//Specify the id of the textarea here
 		</script>
-        
+
 	</td>
 </tr>
 <tr>
 	<td class='colgrishome' colspan="2" align="center">
-        Imagen Principal : <input type="text" name="imagen" id="imagen" size="60"  maxlength="150" value='<?=$row_contenido['cimgcontenido']?>'><input type="button" value="Seleccionar" onClick="openAsset('imagen')" id="btnAsset" name="btnAsset" > 
+		<a id="img" href="<?=$row_contenido['cimgcontenido']?>">
+        Imagen Principal : </a><input type="text" name="imagen" id="imagen" size="60"  maxlength="150" value='<?=$row_contenido['cimgcontenido']?>'><input type="button" value="Seleccionar" onClick="openAsset('imagen')" id="btnAsset" name="btnAsset" >
 	</td>
 </tr>
 <!--<tr>
-	<td class='titlehome' colspan="2">Estilo de Presentación del Contenido</td>
-</tr>        
+	<td class='titlehome' colspan="2">Estilo de Presentaciï¿½n del Contenido</td>
+</tr>
 <tr>
 	<td class='colgrishome' colspan="2">
         <div id="estilos">
 	    <ul class="stylos">
-		  <?php 
-		     /*$estilo_query = db_query("select * from estilocontenido where ccodmodulo='".$modulo."' and cestestcontenido = '1' order by ccodestcontenido"); 
+		  <?php
+		     /*$estilo_query = db_query("select * from estilocontenido where ccodmodulo='".$modulo."' and cestestcontenido = '1' order by ccodestcontenido");
 			 while ($estilo = db_fetch_array($estilo_query))
 			 {
-				if ($estilo['ccodestcontenido'] == $row_contenido['ccodestcontenido']) 
+				if ($estilo['ccodestcontenido'] == $row_contenido['ccodestcontenido'])
 					echo "<li><img src='estilos/images/".$estilo['cimgestcontenido']."'><br><input name='selectestilo' type='radio' value='".$estilo['ccodestcontenido']."' checked>".$estilo['cnomestcontenido']."</li>";
-				else 
+				else
 					echo "<li><img src='estilos/images/".$estilo['cimgestcontenido']."'><br><input name='selectestilo' type='radio' value='".$estilo['ccodestcontenido']."' >".$estilo['cnomestcontenido']."</li>";
 			}*/
 		  ?>
@@ -126,7 +127,7 @@ while($row1 = db_fetch_array($sqlsec1)) {
         </div>
 	</td>
 </tr>-->
-<tr><td class='colgrishome'  colspan="2"><div id="mensaje"></div></td></tr>  	   
+<tr><td class='colgrishome'  colspan="2"><div id="mensaje"></div></td></tr>
 <tr>
 	<td colspan="2"  class='formpie' align="center" >
         <input type="hidden" name="selectmodulo" id="selectmodulo" value="<?=$modulo?>" />
@@ -151,7 +152,7 @@ while($row1 = db_fetch_array($sqlsec1)) {
 <script>
 $(document).ready(function(){
 
-	$('#titulo').keyup(function() 
+	$('#titulo').keyup(function()
     {
 	   $('#amigable').val(convierteAlias($('#titulo').val()));
 	   $('#txttitulo').val($('#titulo').val());
@@ -159,6 +160,6 @@ $(document).ready(function(){
 	$("#selectpage").change(function(){
 		$.post("jq_selectseccion.php",{ idopera:'1',idmodulo:$("#selectmodulo").val(),iditem:$("#IDpro").val(),idpage:$("#selectpage").val()},function(data){$("#cuadrobox").html(data);})
 	});
-	
+
 })
 </script>

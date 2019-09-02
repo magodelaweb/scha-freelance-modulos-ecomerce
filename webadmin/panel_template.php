@@ -5,7 +5,8 @@
 <meta http-equiv="Content-Type" content="text/xml; charset=ISO-8859-15">
 <link  href='estilos/estilo.css'     rel='stylesheet' type='text/css'>
 <script type='text/javascript' src='include/js/jsweb.js' ></script>
-<script type="text/javascript" src="include/js/jquery.js"></script>
+<!--script type="text/javascript" src="include/js/jquery.js"></script-->
+<script type="text/javascript" src="../js/jquery.js"></script>
 <script type="text/javascript" src="include/js/jquery.colorize.js" ></script>
 <script type="text/javascript" src="include/js/jquery.checkboxtree.js" ></script>
 
@@ -16,7 +17,9 @@
 
 <link rel="stylesheet" type="text/css" href="include/jqcolor/css/jpickermin.css" />
 <script type="text/javascript" src="include/jqcolor/jpicker-1.1.5.min.js" ></script>
-
+<script type="text/javascript" src="../fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="../fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+<link rel="stylesheet" type="text/css" href="../fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
 
 </head>
 <body>
@@ -70,5 +73,32 @@ if ($stylo =='3')
 
 <?php } ?>
 </div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancy").click(function() {
+			$.fancybox.open({
+				'href' 				: $(this).attr("data"),
+				'width'				: '460',
+				'height'			: '80%',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'type'				: 'iframe',
+				'scrolling'			: 'no',
+				'padding' 			: 1,
+				/*'autoScale'     	: true,*/
+				'fitToView'			: true,
+				'autoSize'			: false
+				/*'autoDimensions'	: true*/
+			});
+		});
+		$("a#img").fancybox({
+			'titleShow'     : false,
+			'transitionIn'	: 'elastic',
+			'transitionOut'	: 'elastic',
+			'easingIn'      : 'easeOutBack',
+			'easingOut'     : 'easeInBack'
+		});
+	});	
+</script>
 </body>
 </html>

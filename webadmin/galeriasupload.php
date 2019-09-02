@@ -23,7 +23,7 @@ if (move_uploaded_file($_FILES['Filedata']['tmp_name'], $rutafoto))
 	$thumb->save($rutathum);
 	addTextWatermark($rutafoto, $watermark, $rutafoto);
 	chmod($rutathum, 0777);
-	addTextWatermark($rutathum, $watermark, $rutathum,true);	
+	addTextWatermark($rutathum, $watermark, $rutathum);	
 //	$new_cod = $_POST['pagina'].date('ymdHis').codigo_azar(4);
 	$save_contenido= "INSERT INTO contenidogaleria
 						(

@@ -1,6 +1,7 @@
 <?php
 include("settings.php");
-
+include "../../include/funciones.php";
+error_reporting(0);
 /*** Permission ***/
 $bReadOnly0=false;
 $bReadOnly1=true;
@@ -44,11 +45,12 @@ if(isset($_FILES["File1"]))
 	$extimagen  = getExt($nomimagen1);
 	$nomimagen = ereg_replace('.'.$extimagen,'',$nomimagen1);
 	$nvoimagen = ereg_replace("[^A-Za-z0-9]",'-',$nomimagen).".".$extimagen;
-	
-	
+
+
   if(isset($_POST["inpCurrFolder2"]))$currFolder=$_POST['inpCurrFolder2'];
   if(isset($_REQUEST["inpFilter"]))$ffilter=$_REQUEST["inpFilter"];
-
+  $rutafoto = $currFolder."/".$nvoimagen;
+  chmod($rutafoto, 0777);
   if($MaxFileSize && ($_FILES['File1']['size'] > $MaxFileSize))
     {
     $sMsg = "Peso Maximo de la imagen 3 MB.";
@@ -60,14 +62,17 @@ if(isset($_FILES["File1"]))
 //  else if (move_uploaded_file($_FILES['File1']['tmp_name'], $currFolder."/".basename($_FILES['File1']['name'])))
   else if (move_uploaded_file($_FILES['File1']['tmp_name'], $currFolder."/".$nvoimagen))
     {
-    $sMsg = "";
-    $sUploadedFile=$nvoimagen;
-    @chmod($currFolder."/".$nvoimagen, 0644);
-    }
-  else
-    {
-    $sMsg = "Error Verifique Formato de Imagen.";
-    }
+      chmod($rutafoto, 0777);
+      $watermark = "www.schasociados.com";
+      addTextWatermark($rutafoto, $watermark, $rutafoto);
+      $sMsg = "";
+      $sUploadedFile=$nvoimagen;
+      @chmod($currFolder."/".$nvoimagen, 0777);
+      }
+    else
+      {
+      $sMsg = "Error Verifique Formato de Imagen.";
+      }
   }
 else
   {
@@ -569,7 +574,10 @@ function deleteFile(index)
 bOk=false;
 function doOk()
   {
-    (opener?opener:openerWin).setAssetValue(document.getElementById("inpSource").value);
+    var nuevovalor=document.getElementById("inpSource").value;
+    (opener?opener:openerWin).setAssetValue(nuevovalor);
+    //debugger;
+    parent.document.querySelectorAll('a#img')[0].setAttribute("href",nuevovalor);
     bOk=true;
     self.close();
   }

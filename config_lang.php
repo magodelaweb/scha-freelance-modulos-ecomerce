@@ -1,12 +1,12 @@
-<?php  
+<?php
 if ($webidio=="es")
 {
 	define("menu_inicio", "Inicio");
-	
+
 	/***********************  Formulario Contactenos **************/
 	define("contactos_nombre",    "Nombres y apellidos");
 	define("contactos_empresa",   "Empresa");
-	define("contactos_correo",    "Correo Electrónico");
+	define("contactos_correo",    "Correo ElectrÃ³nico");
 	define("contactos_pais",      "Pais");
 	define("contactos_ciudad",    "Ciudad");
 	define("contactos_telefono",  "Telefono");
@@ -14,7 +14,7 @@ if ($webidio=="es")
 	define("contactos_seguro",    "Codigo de Seguridad");
 	define("contactos_enviar",    "Enviar Consulta");
 	define("contactos_ok",        "Su mensaje ha sido enviado correctamente. En las proximas horas le estaremos atendiendo. Utilice los botones de navegaci&oacute;n para continuar.");
-	define("contactos_error",     "Su mensaje no ha sido enviado. por error en el codigo de seguridad.");	
+	define("contactos_error",     "Su mensaje no ha sido enviado. por error en el codigo de seguridad.");
 
 	/***********************  Formulario Buscador **************/
 	define("buscador_miga",      "Buscador");
@@ -27,24 +27,24 @@ if ($webidio=="es")
 	define("registro_titulo",    "Crea una cuenta");
 	define("registro_detalle",   "Rellene los datos");
 	define("registro_nombre",    "Nombres");
-	define("registro_correo",    "Correo Electrónico");
+	define("registro_correo",    "Correo ElectrÃ³nico");
 	define("registro_pais",      "Pais");
 	define("registro_ciudad",    "Ciudad");
 	define("registro_fecha",     "Fecha Nacimiento");
 	define("registro_sexo",      "Sexo");
-	define("registro_password",  "Cree una contraseña");
+	define("registro_password",  "Cree una contraseÃ±a");
 	define("registro_suscripcion","Acepto suscribirme para recibir boletines de noticias y ofertas");
 	define("registro_enviar",    "Registrarse");
 
 	/***********************  Formulario Buscador **************/
-	define("recuperar_miga",      "Recuperar contraseña");
-	define("recuperar_titulo",    "Recuperar contraseña");
-	define("recuperar_detalle",   "Escriba su correo electronico registrado para poder enviar los pasos para crear una nueva contraseña de acceso a nuestra comunidad");
+	define("recuperar_miga",      "Recuperar contraseÃ±a");
+	define("recuperar_titulo",    "Recuperar contraseÃ±a");
+	define("recuperar_detalle",   "Escriba su correo electronico registrado para poder enviar los pasos para crear una nueva contraseï¿½a de acceso a nuestra comunidad");
 
 
 	/***********************  Formulario Login de usuarios **************/
 	define("micuenta_correo",    "Correo Electronico");
-	define("micuenta_password",  "Contraseña");
+	define("micuenta_password",  "ContraseÃ±a");
 	define("micuenta_enviar",    "Ingresar");
 	define("hotel_cate","Categoria de Hotel");
 	define("hotel_tipo","Precio por persona");
@@ -79,4 +79,3 @@ if ($webidio=="en")
 
 
 ?>
-

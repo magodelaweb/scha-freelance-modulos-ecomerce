@@ -1,21 +1,19 @@
 <?php
-function addTextWatermark($src, $watermark, $save, $thumbs=false) {
+function addTextWatermark($src, $watermark, $save) {
   list($width, $height) = getimagesize($src);
   $image_color = imagecreatetruecolor($width, $height);
   $image = imagecreatefromjpeg($src);
   imagecopyresampled($image_color, $image, 0, 0, 0, 0, $width, $height, $width, $height);
   $txtcolor = imagecolorallocatealpha ($image_color, 255, 255, 255,75);
-  $font = dirname(__FILE__) .'/monofont.ttf';
-  $font_size = 70; //12 thumbs
-
-  $x=$width/2-350;
-  $y=$height-50;
-  if ($thumbs){
-    $font_size = 12;
-    $x=50;
-    $y=$height-10;
-  }
-  imagettftext($image_color, $font_size, 30, $x, $y, $txtcolor, $font, $watermark);
+  $fondocolor = imagecolorallocatealpha ($image_color, 0, 0, 0,100);
+  $font = dirname(__FILE__) .'/lato.ttf';
+  $font_size = calculaSizeWtmk($width, $height); //12 thumbs
+  $angulo=calculaAnguloWtmk($width, $height);
+  $x=$font_size/2;
+  $y=$height;  
+  //imagettftext($image_color, $font_size, $angulo, $x+1, $y+1, $fondocolor, $font, $watermark);
+  imagettftext($image_color, $font_size, $angulo, $x-1, $y-1, $fondocolor, $font, $watermark);
+  imagettftext($image_color, $font_size, $angulo, $x, $y , $txtcolor, $font, $watermark);
   if ($save<>'') {
     unlink($save);
     imagejpeg ($image_color, $save, 100);
@@ -26,6 +24,14 @@ function addTextWatermark($src, $watermark, $save, $thumbs=false) {
   }*/
   imagedestroy($image);
   imagedestroy($image_color);
+}
+function calculaSizeWtmk($width, $height){
+  $hipotenuza = intval(floor(sqrt(pow($width,2)+pow($height,2))));
+  return intval(floor($hipotenuza/(20*0.75))); //20 es el numero de caracteres de www.schasociados.com
+}
+function calculaAnguloWtmk($width, $height){
+  $arcotanrad = atan($height/$width);
+  return rad2deg($arcotanrad) ;
 }
 /*************** Funcion Base de datos ****************/
 function fechadmy($fecha){
