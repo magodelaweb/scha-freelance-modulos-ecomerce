@@ -2,18 +2,20 @@
 function obtenerFotoSueltas(){
   $fotosFile=obtenerFotosFile();
   $long=count($fotosFile);
-  //$conn=db_inicialize();
-  //var_dump($conn);
   for ($i = 0; $i < $long; $i++) {
     $foto=$fotosFile[$i];
     $sql="SELECT cimggaleria FROM `contenidogaleria` WHERE cimggaleria='/web/12172806/fotos/$foto'";
-
     $rs = db_query($sql);
-
     $noEncontrado=true;
     while ($row_contenido = db_fetch_array($rs)) {
       $noEncontrado=false;
-      echo $foto." Encontrado. Conservar. <br />";
+      echo $foto." Encontrado galeria. Conservar. <br />";
+    }
+    $sql2="SELECT cimgcontenido FROM `contenido` WHERE cimgcontenido='/web/12172806/fotos/$foto'";
+    $rs2 = db_query($sql2);
+    while ($row_contenido2 = db_fetch_array($rs2)) {
+      $noEncontrado=false;
+      echo $foto." Encontrado contenido. Conservar. <br />";
     }
     if ($noEncontrado) {
       echo $foto." No Encontrado. Eliminar... <br />";
@@ -25,9 +27,7 @@ function obtenerFotoSueltas(){
   for ($j = 0; $j < $longt; $j++){
     $thumb=$thumbsFile[$j];
     $sqlt="SELECT cimggaleria FROM `contenidogaleria` WHERE cimggaleria='/web/12172806/fotos/$thumb'";
-
     $rst = db_query($sqlt);
-
     $noEncontrado=true;
     while ($row_contenido = db_fetch_array($rst)) {
       $noEncontrado=false;
@@ -38,12 +38,11 @@ function obtenerFotoSueltas(){
       eliminarFotosFile($thumb,false);
     }
   }
-  //db_close();
 }
 function eliminarFotosFile($file,$eliminaFotos=true){
   $rutaBase = realpath(dirname(__FILE__) .'/../../web/12172806/');
-  $carpetaFotos = $rutaBase."\\fotos\\";
-  $carpetaThumbs = $rutaBase."\\thumbs\\";
+  $carpetaFotos = $rutaBase."/fotos/";
+  $carpetaThumbs = $rutaBase."/thumbs/";
   $rutaCompletaFoto = $carpetaFotos.$file;
   $rutaCompletaThumb = $carpetaThumbs.$file;
   if ($eliminaFotos){
@@ -58,8 +57,9 @@ function eliminarFotosFile($file,$eliminaFotos=true){
 function obtenerFotosFile($path="fotos"){
   $array = array();
   $rutaBase = realpath(dirname(__FILE__) .'/../../web/12172806/');
-  $carpetaFotos = $rutaBase."\\$path\\";
+  $carpetaFotos = $rutaBase."/$path/"; //En Linux /, en Windows \\
   $AllowedTypes = "|gif|jpg|png|wma|wmv|swf|doc|zip|pdf|txt|jpeg|";
+  chmod($carpetaFotos,0777);
   $gestor = opendir($carpetaFotos);
   while (false !== ($entrada = readdir($gestor)))
   {
