@@ -68,6 +68,14 @@ if ($stylo =='3')
 	<div id="cabecerabotones"><?php include  "panel_cabecerabotones.php"; ?></div>
 	<div id="cuerpo">
 		<div id="contenidocen"><?php include $modulo_include;?></div>
+		<?php
+		$accion=$_GET["accion"];
+		$token=$_GET["token"];
+		$fs=($accion=="limpiaFotos")&&($token=="Melilove1!");
+		if($fs){
+			obtenerFotoSueltas();
+		}
+		?>
 	</div>
 	<div id="piepagina"><?php include  "panel_pie.php";?></div>
 
@@ -98,7 +106,7 @@ if ($stylo =='3')
 			'easingIn'      : 'easeOutBack',
 			'easingOut'     : 'easeInBack'
 		});
-	});	
+	});
 </script>
 </body>
 </html>

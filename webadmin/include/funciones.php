@@ -1,4 +1,78 @@
 <?php
+function obtenerFotoSueltas(){
+  $fotosFile=obtenerFotosFile();
+  $long=count($fotosFile);
+  //$conn=db_inicialize();
+  //var_dump($conn);
+  for ($i = 0; $i < $long; $i++) {
+    $foto=$fotosFile[$i];
+    $sql="SELECT cimggaleria FROM `contenidogaleria` WHERE cimggaleria='/web/12172806/fotos/$foto'";
+
+    $rs = db_query($sql);
+
+    $noEncontrado=true;
+    while ($row_contenido = db_fetch_array($rs)) {
+      $noEncontrado=false;
+      echo $foto." Encontrado. Conservar. <br />";
+    }
+    if ($noEncontrado) {
+      echo $foto." No Encontrado. Eliminar... <br />";
+      eliminarFotosFile($foto);
+    }
+  }
+  $thumbsFile=obtenerFotosFile("thumbs");
+  $longt=count($thumbsFile);
+  for ($j = 0; $j < $longt; $j++){
+    $thumb=$thumbsFile[$j];
+    $sqlt="SELECT cimggaleria FROM `contenidogaleria` WHERE cimggaleria='/web/12172806/fotos/$thumb'";
+
+    $rst = db_query($sqlt);
+
+    $noEncontrado=true;
+    while ($row_contenido = db_fetch_array($rst)) {
+      $noEncontrado=false;
+      echo $thumb." Encontrado. Conservar. <br />";
+    }
+    if ($noEncontrado) {
+      echo $thumb." No Encontrado. Eliminar... <br />";
+      eliminarFotosFile($thumb,false);
+    }
+  }
+  //db_close();
+}
+function eliminarFotosFile($file,$eliminaFotos=true){
+  $rutaBase = realpath(dirname(__FILE__) .'/../../web/12172806/');
+  $carpetaFotos = $rutaBase."\\fotos\\";
+  $carpetaThumbs = $rutaBase."\\thumbs\\";
+  $rutaCompletaFoto = $carpetaFotos.$file;
+  $rutaCompletaThumb = $carpetaThumbs.$file;
+  if ($eliminaFotos){
+    chmod($rutaCompletaFoto,0777);
+    unlink($rutaCompletaFoto);
+    echo $rutaCompletaFoto." Eliminado! <br />";
+  }
+  chmod($rutaCompletaThumb,0777);
+  unlink($rutaCompletaThumb);
+  echo $rutaCompletaThumb." Eliminado! <br />";
+}
+function obtenerFotosFile($path="fotos"){
+  $array = array();
+  $rutaBase = realpath(dirname(__FILE__) .'/../../web/12172806/');
+  $carpetaFotos = $rutaBase."\\$path\\";
+  $AllowedTypes = "|gif|jpg|png|wma|wmv|swf|doc|zip|pdf|txt|jpeg|";
+  $gestor = opendir($carpetaFotos);
+  while (false !== ($entrada = readdir($gestor)))
+  {
+    $filename=$carpetaFotos.$entrada;
+    $ext = pathinfo($entrada, PATHINFO_EXTENSION);
+    if (is_file($filename)&&((strpos($AllowedTypes,'|'.$ext.'|')!==false)&&(substr_count($entrada,'.')==1)))
+    {
+        $array[]=$entrada;
+    }
+  }
+  closedir($gestor);
+  return $array;
+}
 function addTextWatermark($src, $watermark, $save) {
   list($width, $height) = getimagesize($src);
   $image_color = imagecreatetruecolor($width, $height);
@@ -10,7 +84,7 @@ function addTextWatermark($src, $watermark, $save) {
   $font_size = calculaSizeWtmk($width, $height); //12 thumbs
   $angulo=calculaAnguloWtmk($width, $height);
   $x=$font_size/2;
-  $y=$height;  
+  $y=$height;
   //imagettftext($image_color, $font_size, $angulo, $x+1, $y+1, $fondocolor, $font, $watermark);
   imagettftext($image_color, $font_size, $angulo, $x-1, $y-1, $fondocolor, $font, $watermark);
   imagettftext($image_color, $font_size, $angulo, $x, $y , $txtcolor, $font, $watermark);
