@@ -5,7 +5,8 @@
 <title>Samuel Chamochumbi & Asociados S.A.C. - Camiones y maquinaria pesada usada</title>
 <meta name="description" content="How to create a parallax scrolling effect using jQuery, HTML5 and CSS3">
 <meta name="author" content="Mohiuddin Parekh, Nettuts+">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+<!--meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- CSS Code -->
 <!--link rel="stylesheet" href="<?php echo $contenedor;?>/css/style.css"-->
 <link rel="stylesheet" href="<?=$contenedor;?>/css/style.css">
@@ -142,7 +143,7 @@
   <div id="menu">
     <div id="menucont"><?php include("incmenu.php");?></div>
   </div>
-  <div class="contenedor">
+  <div class="contenedor contenedor-margen">
     <div id="central">
 	 <div id="centralcont"><?php include("inccentral.php");?></div>
 	</div>

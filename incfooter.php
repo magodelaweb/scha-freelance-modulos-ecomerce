@@ -4,4 +4,4 @@
 		Telefax: (511) 254-0995 - ENTEL: 981-578763 RUC 20501730468
 	  </p>
 </div>
-<div id="footerright"><a href="https://www.facebook.com/samuel.chamochumbi.asociados/" target="_blank"><img src="<?php echo $contenedor;?>/images/facebook.png"/></a></div>
+<!--div id="footerright"><a href="https://www.facebook.com/samuel.chamochumbi.asociados/" target="_blank"><img src="<?php echo $contenedor;?>/images/facebook.png"/></a></div-->
