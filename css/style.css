@@ -79,6 +79,7 @@ x{
 }
 .contenedor-left{
 	margin-left: 250px;
+	width: calc(100% - 250px);
 }
 .menuIzq{ float:left;}
 .pd{ margin-right:2px;}
@@ -87,6 +88,7 @@ x{
 #cuadro{height:204px; border-bottom:1px solid #5b5b5d; background:url('../images/fondopie1.png') 100% repeat;}
 #cuadrocont{ max-width:963px; height:204px; margin:auto;}
 #footer{
+	background-color: black;
 	height: 50px;
   border-top: 1px solid #5b5b5d;
   border-bottom: 1px solid #5b5b5d;
@@ -134,6 +136,11 @@ p.texto{ font-size:11px; line-height:1.5em;}
 .cajacont p.finantexto{ background:url('../images/fono.png') center left no-repeat; font-size:14px; padding-top:6px;}
 .cajita{ margin:8px 9px 2px 0; width:219px; height:160px; padding:12px 6px 12px 16px; background:url('../images/fondopie2.png') 100% repeat;}
 .cajita + div{ margin-top:0;}
+.cajita p{
+	 font-size: 13px;
+	 width: 171px;
+}
+
 .cajita p a{ text-decoration:none;}
 .cajita p a:hover,.cajita p a.current{ color:#f5540d;}
 .cajitacont{ padding:8px 0 0 0;}
@@ -174,7 +181,51 @@ p.texto{ font-size:11px; line-height:1.5em;}
 	padding-left: 5px;
 	padding-right: 5px;
 }
+#centralcont .contenedor-left .textblog img.segura{
+	    width: 33.1%;
+}
+.cajita-header{
+	display: none;
+}
 @media (max-width: 767px){
+	.cajita-header{
+		width: 100%  !important;
+	  margin: 0;
+	  padding-top: 0;
+	  display: flex;
+	  height: 60px  !important;
+	}
+	.cajita-header .cajitacont{
+		display: flex;
+	}
+	.cajita-header .cajitacont p.finantexto{
+		padding-top:unset;
+		margin-left: 20px;
+	}
+	.cajita-header .cajitacont p.finantitle{
+		padding-top:unset;
+		padding-bottom:unset;
+		padding-left: 40px;
+		background: url(../images/finan-min.png) center left no-repeat;
+	}
+	.cajita-header p{
+
+	  max-width: 11em !important;
+	  padding-top: 0;
+	  margin-top: 0;
+	  border-bottom: unset !important;
+	}
+	.cajita-header .rrss-header{
+		display: flex;
+	}
+	.cajita-header .rrss-header a{
+		padding-left: 1em;
+	  padding-top: 0.5em;
+	  padding-bottom: 1em;
+	}
+	.cajita-header .rrss-header a img{
+	  padding-top: 0;
+	}
  #cuadro{height:570px;}
  #logo{ padding-top:9px; float:none; width:243px; margin:0 auto;}
  /*#menu{width:100%; height:161px; background:url('../images/fondomenu.png'); padding:0;}*/
@@ -184,6 +235,64 @@ p.texto{ font-size:11px; line-height:1.5em;}
  #footerleft,#footerright{ width:100%; float:none;}
  #footerleft p,#footerright{ text-align:center; color:#FFF;}
  .menuIzq{ float:none;}
+ .contenedor-margen{
+ 	margin-top: 240px;
+ }
+ .contenedor-left{
+ 	margin-left: unset;
+	width: 100%;
+ }
+ .cajita{
+	 width: 300px;
+	 height: unset;
+ }
+ .cajita p{
+	 font-size: 26px;
+	 width: 100%;
+ }
+ .cajita p.texto{
+	 font-size: 20px;
+    width: 100%;
+		line-height: 2em;
+ }
+ .cajita p a {
+    font-size: 20px;
+}
+ .w7 {
+    width: unset;
+	}
+	.textocont {
+    margin-right: initial;
+    padding-top: 0.8em;
+	}
+
+}
+@media (max-width: 640px){
+	.cajita-header .cajitacont p.finantexto{
+		background: unset;
+		padding-left: 0;
+	}
+	.cajita-header .cajitacont p.finantitle{
+		font-size: 16px;
+		width: 9em;
+		background: unset;
+		padding-left: 0;
+		padding-right: 5px;
+	}
+	.cajita-header .rrss-header a{
+		padding-left: 2px;
+		padding-right: 2px;
+	}
+	.cajita-header .rrss-header a img{
+		padding-left: 2px;
+		padding-right: 2px;
+	}
+}
+@media (max-width: 480px){
+	.cajita-header .cajitacont p.finantitle{
+		display: none;
+	}
+
 }
 .naranja{background:#f5540d;height: 130px;}
 
@@ -244,6 +353,9 @@ p.texto{ font-size:11px; line-height:1.5em;}
  #menu ul.iconos li {
  	height: unset;
  }
+ #menu ul.iconos li a span{
+	 display: none;
+ }
 }
 
 .sf-menu > li {
@@ -285,6 +397,12 @@ p.texto{ font-size:11px; line-height:1.5em;}
     display: block;
     margin: 0 auto;
     padding: 30px 0 20px 0;
+	}
+	#menu ul.iconos li a span{
+		color: black;
+    font-weight: bold;
+    display: block;
+		text-transform: uppercase;
 	}
 }
 .sf-menu > li > a.last {

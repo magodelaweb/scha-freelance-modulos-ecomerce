@@ -10,6 +10,8 @@
 <!-- CSS Code -->
 <!--link rel="stylesheet" href="<?php echo $contenedor;?>/css/style.css"-->
 <link rel="stylesheet" href="<?=$contenedor;?>/css/style.css">
+<link rel="stylesheet" href="/css/touch-sideswipe.css">
+<script type="text/javascript" src="/js/touch-sideswipe.js"></script>
 <!-- JS Code -->
 <!--<script src="<?php echo $contenedor;?>/js/libs/jquery-1.6.1.min.js"></script>-->
 <script type="text/javascript" src="<?php echo $contenedor;?>/js/jquery.js"></script>
@@ -56,6 +58,22 @@
 				'easingIn'      : 'easeOutBack',
 				'easingOut'     : 'easeInBack'
 			});
+      var touchSideSwipe = new TouchSideSwipe({
+        // container element
+        elementID: 'touchSideSwipe',
+        // width and height
+        elementWidth: 340, //px
+        elementMaxWidth: 0.95, // *100%
+        sideHookWidth: 10, //px
+        // animation speed in seconds
+        moveSpeed: 0.2,
+        // opacity of background
+        opacityBackground:0,
+        // in pixels
+        shiftForStart: 10,
+        // max width of window
+        windowMaxWidth: 768,
+    });
 /*
       $('body').bind('cut copy paste', function (e) {
         $('#btnsec.btnsec').click();

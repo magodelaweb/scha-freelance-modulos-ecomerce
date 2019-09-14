@@ -30,7 +30,7 @@ $numreg = $aclass->filas();
 					//echo '<div class="textblog"><p><a class="fancy" data="blog.php?codcont='.$info[0].'" href="javascript:;">'.utf8_encode($info[1]).'</a></p></div>';
 					echo '</div>';
 				}elseif($paramSec=='empresa' || $paramSec=='servicio'){
-					echo '<div style="width:711px;">';
+					echo '<div>';// style="width:711px;"
 					echo '<div class="textblog" style="border:none;">'.utf8_encode($info1[0]);
 					if($paramSec=='servicio') echo '<div style="margin-top:5px;"><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/servicios1.jpg').'"/><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/servicios2.jpg').'"/><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/servicios3.jpg').'"/></div>';
 					else echo '<div style="margin-top:5px;"><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/empresa1.jpg').'"/><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/empresa2.jpg').'"/><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/empresa3.jpg').'"/></div>';
