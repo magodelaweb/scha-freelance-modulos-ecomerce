@@ -36,14 +36,14 @@ $numreg = $aclass->filas();
 					else echo '<div style="margin-top:5px;"><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/empresa1.jpg').'"/><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/empresa2.jpg').'"/><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/empresa3.jpg').'"/></div>';
 					echo '</div></div>';
 				}else{
-					echo '<div style="width:430px;">';
+					echo '<div>';
 					echo '<div class="titfancy"><p>'.utf8_encode($info[1]).'</p></div>';
 					echo '<div class="textfancy">'.utf8_encode($info1[0]).'</div>';
 					echo '</div>';
 				}
 			}else{
 				$nomurl = crearurl_articulo($info[5],$bclass);
-				echo '<div style="width:711px;"><div class="celda left" '.((($i%4)==0)?'style="margin-right:0;"':'').'><div class="celdacont"><a class="segura" href="'.CodificaUrlImg($nomurl.$info[2]).'"><img class="segura" src="'.CodificaUrlImg(str_replace('fotos','thumbs',substr($info[6],1))).'"  width="'.(40+(40*3)).'"  height="'.(30+(30*3)).'"/></a><p>'.$info[1].'</p></div></div></div>';
+				echo '<div><div class="celda left" '.((($i%4)==0)?'style="margin-right:0;"':'').'><div class="celdacont"><a class="segura" href="'.CodificaUrlImg($nomurl.$info[2]).'"><img class="segura" src="'.CodificaUrlImg(str_replace('fotos','thumbs',substr($info[6],1))).'"  width="'.(40+(40*3)).'"  height="'.(30+(30*3)).'"/></a><p>'.$info[1].'</p></div></div></div>';
 			}
 			$i++;
 		 }

@@ -1,10 +1,10 @@
 
-<div style="width:711px;">
+<div>
 <div class="textblog" style="border:none;">
 
 <?php
-/*echo "<script language='JavaScript'> 
-                alert('paramSec: ".$paramSec."'); 
+/*echo "<script language='JavaScript'>
+                alert('paramSec: ".$paramSec."');
                 </script>";*/
 if(isset($_POST['submitbutton'])) {
 	    $mensaje = "Datos del mensaje:<br>";
@@ -19,17 +19,17 @@ if(isset($_POST['submitbutton'])) {
 		$mensaje .= "---------------------------------------------------------------------------<br>";
 		$destinatario = 'jchojeda@schasociados.com';
 		$asunto  = "Consulta desde pagina web  ";
-		
+
 	if ($_SESSION['security_code'] == $_POST['security_code']){
-		$sqlcontacto = "INSERT INTO personabuzon 
+		$sqlcontacto = "INSERT INTO personabuzon
 						(ccodpage,cdespersona,cnommensaje,cestmensaje,cemamensaje,casumensaje,cdesmensaje,dfecmensaje)
 						VALUES
 						('".$codpage."','11061212','".$_POST[nombre]."','1','".$_POST[correo]."','".$asunto."','".$mensaje."',now() )";
 		$aclass->consulta($sqlcontacto);
 
-		$server='nextsoluciones.nslatino.com';	
+		$server='nextsoluciones.nslatino.com';
 		$nombre=$_POST["nombre"];;
-		$nomDest='Jonatan Chojeda';		
+		$nomDest='Jonatan Chojeda';
 	    $pass='wmscha.4833';
 		// Pear Mail Library
 		require("include/sendmail/class.phpmailer.php");
@@ -40,37 +40,37 @@ if(isset($_POST['submitbutton'])) {
 		$mail = new PHPMailer();
 
 	    $mail->SetLanguage("es", "");
-	    $mail->CharSet = "UTF-8";	 
+	    $mail->CharSet = "UTF-8";
 	    $mail->IsSMTP();
 	    $mail->SMTPAuth = true;
 	 	$mail->SMTPSecure = 'tls';
 	    $mail->Host = $server;
 	    $mail->Port = 25;
-	 
+
 	    $mail->Username = $from;
 	    $mail->Password = $pass;
-	 
+
 	    $mail->AddAddress($destinatario,$nomDest);
 	    $mail->AddReplyTo($ReplyTo ,$nombre);
 	    $mail->SetFrom($from ,$nombre);
-	    
-	    $mail->IsHTML(true);	    
-	    $mail->Subject = $asunto;	    
-	    $mail->Body =$mensaje;	    
+
+	    $mail->IsHTML(true);
+	    $mail->Subject = $asunto;
+	    $mail->Body =$mensaje;
 	    $mail->AltBody = htmlspecialchars($mensaje);
 
-		
-		/*echo "<script language='JavaScript'> 
+
+		/*echo "<script language='JavaScript'>
                 alert('host: ".$mailserver."');
 		        alert('username: ".$mailuser."');
-		        alert('password: ".$mailpass."'); 
+		        alert('password: ".$mailpass."');
 		        alert('From: ".$_POST["correo"]."');
 		        alert('FromName: ".$_POST["nombre"]."');
 		        alert('AddAddress: ".$para."');
 		        alert('AddAddress: ".$paraweb."');
 		        alert('Asunto: ".$asunto."');
 		        alert('Mensaje: ".$mensaje."');
-		        </script>"; */       
+		        </script>"; */
 		if( !$mail->Send() )
 		    {
 		        echo "<br>";
@@ -87,7 +87,7 @@ if(isset($_POST['submitbutton'])) {
 				echo "<br>";
 		        exit();
 		    }
-		
+
 	}else{
 		echo "<br>";
 		echo "<p align='center'><img src='".$contenedor."/web/mensajeenviado.png'></p>";
@@ -117,7 +117,7 @@ if(isset($_POST['submitbutton'])) {
 				echo "<option value=".$rowpais['ccodubigeo']." selected>".utf8_encode($rowpais['cnomubigeo'])."</option>";
 			else
 				echo "<option value=".$rowpais['ccodubigeo'].">".utf8_encode($rowpais['cnomubigeo'])."</option>";
-		} 
+		}
 		?>
 		</select></div>
 		<div><label style="padding-right:115px;">Ciudad</label><input name="ciudad"  id="ciudad" type="text"  size="30" class="cuadromin"></div>
@@ -125,7 +125,7 @@ if(isset($_POST['submitbutton'])) {
         <div><label style="padding-right:103px;">Consulta</label><textarea name="mensaje" id="mensaje" cols="25" rows="5" class="cuadroarea"></textarea></div>
 		<div><label style="padding-right:155px;">&nbsp;</label><img src="<?php echo $contenedor;?>/include/captcha.php?width=100&height=40&characters=6"  class="imagen"></div>
 		<div><label style="padding-right:22px;">C&oacute;digo de Seguridad</label><input id="security_code" name="security_code" type="text"  maxlength="6" class="cuadromin"></div><br/>
-		<div style="width:611px; margin:0 auto; text-align:center;"><input type="submit" name="submitbutton" id="submitbutton" value="Enviar Consulta" class="formboton"></div><br/>
+		<div style="margin:0 auto; text-align:center;"><input type="submit" name="submitbutton" id="submitbutton" value="Enviar Consulta" class="formboton"></div><br/>
 	</form>
 	<script type="text/javascript">
 		var txtnombre = new LiveValidation('nombre',{ validMessage: "Ok" });
@@ -137,7 +137,7 @@ if(isset($_POST['submitbutton'])) {
 		var txtcodigo = new LiveValidation('security_code',{ validMessage: "Ok" });
 		txtcodigo.add(Validate.Presence,{failureMessage: "x"});
 		txtcodigo.add(Validate.Length, { minimum: 6, tooShortMessage:"Min 6c"});
-	</script>  
+	</script>
 </div>
 </div>
 </div>
