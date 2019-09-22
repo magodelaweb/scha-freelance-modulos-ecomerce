@@ -1,9 +1,11 @@
 <?php
-$sql = "Select c.ccodcontenido,c.cnomcontenido,c.camicontenido,c.crescontenido,c.curlcontenido,s.ccodseccion,c.cimgcontenido,c.ccodmodulo,c.dfeccontenido,ctipcontenido,curlcontenido FROM contenido c, seccioncontenido s where c.ccodcontenido=s.ccodcontenido and  c.cestcontenido='1' and c.ccodmodulo='1200' and s.ccodseccion = '121728060002000000000000' order by c.ccodcontenido desc  LIMIT 0 , 1000";
+$sql = "Select c.ccodcontenido,c.cnomcontenido,c.camicontenido,c.crescontenido,c.curlcontenido,s.ccodseccion,c.cimgcontenido,c.ccodmodulo,c.dfeccontenido,ctipcontenido,curlcontenido
+FROM contenido c, seccioncontenido s where c.ccodcontenido=s.ccodcontenido and  c.cestcontenido='1' and c.ccodmodulo='1200' and s.ccodseccion = '121728060002000000000000'
+order by c.ccodcontenido desc  LIMIT 0 , 12";
 $aclass->consulta($sql);
 ?>
 <div>
-	   <div class="image-container">
+	   <div id="response" class="image-container jscroll">
 	    <?php
 		$i = 1;
 		while($info=$aclass->respuesta()){
@@ -20,6 +22,10 @@ $aclass->consulta($sql);
 		}
 		?>
 		</div>
+		<input type="hidden" id="pageno" value="1">
+		<div class="celda left f-fila">
+		<div class="celdacont"><a href="#" class="loader">
+			<img id="loader" class="" src="/images/loader.svg"></a></div></div>
 		<!--<div id="pagina" class="right">
 		 <a href="#" class="current">1</a>
 		 <a href="#">2</a>

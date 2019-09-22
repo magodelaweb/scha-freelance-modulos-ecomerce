@@ -672,7 +672,7 @@ p.texto{ font-size:11px; line-height:1.5em;}
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    /*justify-content: space-around;*/
     align-items: stretch;
 }
 .f-fila{
@@ -682,11 +682,27 @@ p.texto{ font-size:11px; line-height:1.5em;}
 		width: 153px;
 		height: calc(0.75 * 153px);
 }
+.celdacont a.loader{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 153px;
+		height: calc(0.75 * 153px);
+}
+.celdacont a img.segura#loader{
+		width: 32px;
+		height: 32px;
+}
+
 @media (min-width: 885px) and (max-width: 979px){
 	.f-fila{
 			width: calc(1em + 130px);
 	}
 	.celdacont a img.segura{
+			width: 130px;
+			height: calc(0.75 * 130px);
+	}
+	.celdacont a.loader{
 			width: 130px;
 			height: calc(0.75 * 130px);
 	}
@@ -699,12 +715,20 @@ p.texto{ font-size:11px; line-height:1.5em;}
 			width: 143px;
 			height: calc(0.75 * 143px);
 	}
+	.celdacont a.loader{
+			width: 143px;
+			height: calc(0.75 * 143px);
+	}
 }
 @media (min-width: 633px) and (max-width: 726px){
 	.f-fila{
 			width: calc(1em + 130px);
 	}
 	.celdacont a img.segura{
+			width: 130px;
+			height: calc(0.75 * 130px);
+	}
+	.celdacont a.loader{
 			width: 130px;
 			height: calc(0.75 * 130px);
 	}
@@ -717,12 +741,20 @@ p.texto{ font-size:11px; line-height:1.5em;}
 			width: 160px;
 			height: calc(0.75 * 160px);
 	}
+	.celdacont a.loader{
+			width: 160px;
+			height: calc(0.75 * 160px);
+	}
 }
 @media (min-width: 320px) and (max-width: 547px){
 	.f-fila{
 			width: calc(1em + 130px);
 	}
 	.celdacont a img.segura{
+			width: 130px;
+			height: calc(0.75 * 130px);
+	}
+	.celdacont a.loader{
 			width: 130px;
 			height: calc(0.75 * 130px);
 	}

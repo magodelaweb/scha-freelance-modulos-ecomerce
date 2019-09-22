@@ -43,7 +43,7 @@ $numreg = $aclass->filas();
 				}
 			}else{
 				$nomurl = crearurl_articulo($info[5],$bclass);
-				echo '<div><div class="celda left" '.((($i%4)==0)?'style="margin-right:0;"':'').'><div class="celdacont"><a class="segura" href="'.CodificaUrlImg($nomurl.$info[2]).'"><img class="segura" src="'.CodificaUrlImg(str_replace('fotos','thumbs',substr($info[6],1))).'"  width="'.(40+(40*3)).'"  height="'.(30+(30*3)).'"/></a><p>'.$info[1].'</p></div></div></div>';
+				echo '<div><div class="celda left f-fila" '.((($i%4)==0)?'':'').'><div class="celdacont"><a class="segura" href="'.CodificaUrlImg($nomurl.$info[2]).'"><img class="segura" src="'.CodificaUrlImg(str_replace('fotos','thumbs',substr($info[6],1))).'"  width="'.(40+(40*3)).'"  height="'.(30+(30*3)).'"/></a><p>'.$info[1].'</p></div></div></div>';
 			}
 			$i++;
 		 }

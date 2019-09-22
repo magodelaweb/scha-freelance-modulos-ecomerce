@@ -17,7 +17,7 @@
 <script type="text/javascript" src="<?php echo $contenedor;?>/js/jquery.js"></script>
 <script type="text/javascript" id="idscript" src="<?php echo $contenedor;?>/js/script.js?cont=<?php echo $contenedor; ?>" ></script>
 <script type="text/javascript">
-    $(window).scroll(function()
+    /*$(window).scroll(function()
             {
                 if ($(this).scrollTop() > 112){
         					 $('#menu').addClass("fixed").fadeIn();
@@ -27,11 +27,12 @@
         					$('#menu').removeClass("fixed");
         					$('.contenedor').removeClass("margen");
         				}
-            });
+            });*/
 </script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/clipboard.min.js"></script>
 <script type="text/javascript" src="<?php echo $contenedor;?>/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
 <script type="text/javascript" src="<?php echo $contenedor;?>/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+<script type="text/javascript" src="/js/jquery.inview.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo $contenedor;?>/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
 <script type="text/javascript">
 		$(document).ready(function() {
@@ -196,5 +197,28 @@
 	 echo '</script>';
  }
 ?>
+<script type="text/javascript">
+		$(document).ready(function() {
+      $('#loader').on('inview', function(event, isInView) {
+               if (isInView) {
+                   var nextPage = parseInt($('#pageno').val())+1;
+                   $.ajax({
+                       type: 'POST',
+                       url: 'home-next',
+                       data: { pageno: nextPage },
+                       success: function(data){
+                           if(data != ''){
+                               $('.jscroll').append(data);
+                               $('#pageno').val(nextPage);
+                           } else {
+                               $("#loader").hide();
+                           }
+                       }
+                   });
+               }
+           });
+		});
+
+</script>
 </body>
 </html>
