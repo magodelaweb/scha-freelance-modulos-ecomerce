@@ -74,7 +74,7 @@ if(isset($_POST['submitbutton'])) {
 		if( !$mail->Send() )
 		    {
 		        echo "<br>";
-				echo "<p align='center'><img src='".$contenedor."/web/mensajeNoenviado.png'></p>";
+				echo "<p align='center'><img src='/web/mensajeNoenviado.png'></p>";
 		    	echo "<p>El mensaje se envi&oacute; a la p&aacute;gina web pero ocurri&oacute; un error en el servicio de correo electr&oacute;nico. Vuelva a intentar en unos minutos</p>";
 				echo "<br>";
 		        exit();
@@ -82,7 +82,7 @@ if(isset($_POST['submitbutton'])) {
 		    else
 		    {
 		        echo "<br>";
-				echo "<p align='center'><img src='".$contenedor."/web/mensajeenviado.png'></p>";
+				echo "<p align='center'><img src='/web/mensajeenviado.png'></p>";
 		    	echo "<p>Su mensaje ha sido enviado correctamente. En las proximas horas le estaremos atendiendo. Utilice los botones de navegaci&oacute;n para continuar.</p>";
 				echo "<br>";
 		        exit();
@@ -90,7 +90,7 @@ if(isset($_POST['submitbutton'])) {
 
 	}else{
 		echo "<br>";
-		echo "<p align='center'><img src='".$contenedor."/web/mensajeenviado.png'></p>";
+		echo "<p align='center'><img src='/web/mensajeenviado.png'></p>";
     	echo "<p>Su mensaje no ha sido enviado. por error en el codigo de seguridad.</p>";
 		echo "<br>";
 	}
@@ -123,7 +123,7 @@ if(isset($_POST['submitbutton'])) {
 		<div><label style="padding-right:115px;">Ciudad</label><input name="ciudad"  id="ciudad" type="text"  size="30" class="cuadromin"></div>
 		<div><label style="padding-right:103px;">Tel&eacute;fono</label><input name="telefono"  id="telefono" type="text"  size="20" class="cuadromin"></div>
         <div><label style="padding-right:103px;">Consulta</label><textarea name="mensaje" id="mensaje" cols="25" rows="5" class="cuadroarea"></textarea></div>
-		<div><label style="padding-right:155px;">&nbsp;</label><img src="<?php echo $contenedor;?>/include/captcha.php?width=100&height=40&characters=6"  class="imagen"></div>
+		<div><label style="padding-right:155px;">&nbsp;</label><img src="/include/captcha.php?width=100&height=40&characters=6"  class="imagen"></div>
 		<div><label style="padding-right:22px;">C&oacute;digo de Seguridad</label><input id="security_code" name="security_code" type="text"  maxlength="6" class="cuadromin"></div><br/>
 		<div style="margin:0 auto; text-align:center;"><input type="submit" name="submitbutton" id="submitbutton" value="Enviar Consulta" class="formboton"></div><br/>
 	</form>

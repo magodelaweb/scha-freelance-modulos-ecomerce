@@ -7,13 +7,13 @@ if($paramSec=='inicio'){
 		 <div class="cajacont">
 		  <p class="title">EQUIPOS:</p>
 		  <div class="textocont left w7"><p class="texto">
-		   <?php 
+		   <?php
 		   $aclass->consulta("SELECT s.ccodseccion,s.cnomseccion,s.camiseccion,s.curlseccion,s.ctipseccion,s.cnewmenu FROM  seccion s, seccionmenu  sm WHERE s.ccodseccion=sm.ccodseccion  and sm.ccodmenu='2' and s.ccodpage='12172806' and s.cnivseccion=1 and  s.cestseccion='1'  ORDER BY sm.cordmenu");
 		   while($info=$aclass->respuesta()){
-			  echo '- <a href="'.$contenedor.'/'.$info[2].'" '.((url_amigable($info[2])==$paramSec)?'class="current"':'').'>'.$info[1].'</a><br/>';
+			  echo '- <a href="/'.$info[2].'" '.((url_amigable($info[2])==$paramSec)?'class="current"':'').'>'.$info[1].'</a><br/>';
 		   }?>
 		  </p></div>
-		  <div class="left"><img src="<?php echo $contenedor;?>/images/equipos.jpg"/></div>
+		  <div class="left"><img src="/images/equipos.jpg"/></div>
 		 </div>
 		</div>
 		<div class="caja">
@@ -25,12 +25,12 @@ if($paramSec=='inicio'){
 		  $aclass->consulta($sql);
 		  while($info=$aclass->respuesta()){
 			  $nomurl = crearurl_articulo($info[5],$bclass);
-			  echo '- <a href="'.$contenedor.'/'.$nomurl.$info[2].'" >'.$info[1].'</a><br/>';
+			  echo '- <a href="/'.$nomurl.$info[2].'" >'.$info[1].'</a><br/>';
 		  }
 		  ?>
-		  - <a href="<?php echo $contenedor.'/ofertas';?>">MAS OFERTAS</a>
+		  - <a href="<?php echo '/ofertas';?>">MAS OFERTAS</a>
 		  </p></div>
-		 </div> 
+		 </div>
 		</div>
 		<div class="caja naranja">
 		 <div class="cajacont" style="width:285px;">

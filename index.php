@@ -1,7 +1,7 @@
 <?php
 session_start();
-error_reporting(0);
-//error_reporting(E_ALL);
+//error_reporting(0);
+error_reporting(E_ALL);
 //echo "...Inicia debug...";
 require('inc/config.php');
 //echo "<br/>...config cargado...";

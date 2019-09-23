@@ -8,32 +8,20 @@
 <!--meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- CSS Code -->
-<!--link rel="stylesheet" href="<?php echo $contenedor;?>/css/style.css"-->
-<link rel="stylesheet" href="<?=$contenedor;?>/css/style.css">
+<!--link rel="stylesheet" href="/css/style.css"-->
+<link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/touch-sideswipe.css">
 <script type="text/javascript" src="/js/touch-sideswipe.js"></script>
 <!-- JS Code -->
-<!--<script src="<?php echo $contenedor;?>/js/libs/jquery-1.6.1.min.js"></script>-->
-<script type="text/javascript" src="<?php echo $contenedor;?>/js/jquery.js"></script>
-<script type="text/javascript" id="idscript" src="<?php echo $contenedor;?>/js/script.js?cont=<?php echo $contenedor; ?>" ></script>
-<script type="text/javascript">
-    /*$(window).scroll(function()
-            {
-                if ($(this).scrollTop() > 112){
-        					 $('#menu').addClass("fixed").fadeIn();
-        					 $('.contenedor').addClass("margen").fadeIn();
-        				}
-                else {
-        					$('#menu').removeClass("fixed");
-        					$('.contenedor').removeClass("margen");
-        				}
-            });*/
-</script>
+<!--<script src="/js/libs/jquery-1.6.1.min.js"></script>-->
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" id="idscript" src="/js/script.js?cont=" ></script>
+
 <script type="text/javascript" src="/js/clipboard.min.js"></script>
-<script type="text/javascript" src="<?php echo $contenedor;?>/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
-<script type="text/javascript" src="<?php echo $contenedor;?>/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+<script type="text/javascript" src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
 <script type="text/javascript" src="/js/jquery.inview.js"></script>
-<link rel="stylesheet" type="text/css" href="<?php echo $contenedor;?>/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+<link rel="stylesheet" type="text/css" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
 <script type="text/javascript">
 		$(document).ready(function() {
 			$(".fancy").click(function() {
@@ -113,7 +101,10 @@
       		keyCtrl=false;
       	}
       });*/
-      var imgSec=$("img.segura");
+      decodecifconten();
+		});
+		function decodecifconten(){
+			var imgSec=$("img.segura");
       var enlaceSec=$("a.segura");
       var titSec=$("p.segura");
       var descSec=$(".textdet.segura");
@@ -134,25 +125,42 @@
               var url=imgSel.attr("src");
               var newurl=decodificaImgUrl(url);
               imgSel.attr("src",newurl);
+							$.ajax({
+								url:newurl,
+								type:'HEAD',
+								error: function(){
+										imgerror(imgSel);
+						    },
+						    success: function(){
+						        imgSel.attr("href",newurl);
+						    }
+							});
         	});
       enlaceSec.each(function(){
               var enlaceSel=$(this);
               var url=enlaceSel.attr("href");
               var newurl=decodificaImgUrl(url);
-              enlaceSel.attr("href",newurl);
+							enlaceSel.attr("href",newurl);
         	});
-      function decodificaImgUrl(cif){
-        var decodcif = atob(cif);
-        return decodcif.split("").reverse().join("");
-      }
-      function decodificaLargeText(cif){
-        var decodcif = atob(cif);
-        return decodcif.split("").reverse().join("");
-      }
-		});
+		}
+		function codificaImgUrl(nocif){
+			nocif.split("").reverse().join("")
+			return cif = btoa(cif);
+		}
+		function decodificaImgUrl(cif){
+			var decodcif = atob(cif);
+			return decodcif.split("").reverse().join("");
+		}
+		function decodificaLargeText(cif){
+			var decodcif = atob(cif);
+			return decodcif.split("").reverse().join("");
+		}
+		function imgerror(image){
+			$(image).attr("src","/images/imgvoid.jpg");
+		}
 </script>
-<script type="text/javascript" src="<?php echo $contenedor;?>/js/livevalidation.js"></script>
-<link rel="stylesheet" href="<?php echo $contenedor;?>/css/accordion.css">
+<script type="text/javascript" src="/js/livevalidation.js"></script>
+<link rel="stylesheet" href="/css/accordion.css">
 </head>
 
 <body>
@@ -181,12 +189,13 @@
        Copy url scha
    </button>
 </div>
+<input type="hidden" id="stopscroll" value="0">
 <?php
 
  if($paramSec=='inicio' && empty($paramSec2)){
 	 echo '<script type="text/javascript">';
 	 echo '$(document).ready(function() {';
-	 echo 'var linkLocation = "'.$contenedor.'/home";';
+	 echo 'var linkLocation = "home";';
 	 //echo 'event.preventDefault();';
 	 /*echo '$(".contenedor").slideUp(5000); // effect*/
 	 echo 'window.setTimeout(function(){document.location.href = linkLocation;}, 3000);';
@@ -204,20 +213,44 @@
                    var nextPage = parseInt($('#pageno').val())+1;
                    $.ajax({
                        type: 'POST',
-                       url: 'home-next',
+                       url: 'inchomenext.php',
                        data: { pageno: nextPage },
                        success: function(data){
+												 //console.log("data: "+data);
                            if(data != ''){
                                $('.jscroll').append(data);
                                $('#pageno').val(nextPage);
-                           } else {
+                           }
+													 else if (data == ''){
                                $("#loader").hide();
+                           } else {
+                               //$("#loader").hide();
                            }
                        }
                    });
                }
            });
+					 $(window).scroll(function() {
+						 //debugger;
+						 var flag=$("#stopscroll").val();
+						 if (flag=="0"){
+							 	//console.log("0");
+							 	$("#loader").fadeOut(1000, function() {});
+	 							setTimeout(
+	 						  function()
+	 						  {
+	 						    $("#loader").show();
+	 						  }, 1000);
+								$("#stopscroll").val("1");
+						 }
+					 });
 		});
+		function imgError(image){
+			/*var cif=codificaImgUrl("images/imgvoid.jpg")
+			$(image).attr("src",cif);*/
+			imgerror(image);
+		}
+
 
 </script>
 </body>

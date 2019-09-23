@@ -12,7 +12,7 @@ $aclass->consulta($sql);
 			/*$codcont = $info['ccodcontenido'];
 		    $bclass->consulta("UPDATE contenido SET nviscontenido = nviscontenido + 1  WHERE ccodcontenido = '".$codcont."'");*/
 			$nomurl = crearurl_articulo($info[5],$bclass);/*v ($i%4)==0)?'' <style="margin-right:0;"*/
-			echo '<div class="celda left f-fila" '.((($i%4)==0)?'':'').'>
+			echo '<div class="celda left f-fila">
 			<div class="celdacont"><a class="segura" href="'.
 			CodificaUrlImg($nomurl.$info[2]).'"><img class="segura" src="'.
 			CodificaUrlImg(str_replace('fotos','thumbs',substr($info[6],1))).
@@ -23,12 +23,6 @@ $aclass->consulta($sql);
 		?>
 		</div>
 		<input type="hidden" id="pageno" value="1">
-		<div class="celda left f-fila">
-		<div class="celdacont"><a href="#" class="loader">
-			<img id="loader" class="" src="/images/loader.svg"></a></div></div>
-		<!--<div id="pagina" class="right">
-		 <a href="#" class="current">1</a>
-		 <a href="#">2</a>
-		 <a href="#">3</a>
-		</div>-->
+		<a href="#" class="loader">
+			<img id="loader" class="" src="/images/loader.svg"></a>
 </div>

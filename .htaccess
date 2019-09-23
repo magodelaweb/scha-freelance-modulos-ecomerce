@@ -8,4 +8,4 @@ RewriteRule ^(.*)/(.*)/(.*)/(.*)$ index.php?idsec=$1&idsec2=$2&idsec3=$3&idsec4=
 RewriteRule ^(.*)/(.*)/(.*)$ index.php?idsec=$1&idsec2=$2&idsec3=$3 [L]
 RewriteRule ^(.*)/(.*)$ index.php?idsec=$1&idsec2=$2 [L]
 ErrorDocument 404 /404.php
-php_flag display_errors off
+#php_flag display_errors off

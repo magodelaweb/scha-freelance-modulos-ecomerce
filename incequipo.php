@@ -32,8 +32,8 @@ $numreg = $aclass->filas();
 				}elseif($paramSec=='empresa' || $paramSec=='servicio'){
 					echo '<div>';// style="width:711px;"
 					echo '<div class="textblog" style="border:none;">'.utf8_encode($info1[0]);
-					if($paramSec=='servicio') echo '<div style="margin-top:5px;"><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/servicios1.jpg').'"/><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/servicios2.jpg').'"/><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/servicios3.jpg').'"/></div>';
-					else echo '<div style="margin-top:5px;"><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/empresa1.jpg').'"/><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/empresa2.jpg').'"/><img class="segura" src="'.CodificaUrlImg($contenedor.'/images/empresa3.jpg').'"/></div>';
+					if($paramSec=='servicio') echo '<div style="margin-top:5px;"><img class="segura" src="'.CodificaUrlImg('/images/servicios1.jpg').'"/><img class="segura" src="'.CodificaUrlImg('/images/servicios2.jpg').'"/><img class="segura" src="'.CodificaUrlImg('/images/servicios3.jpg').'"/></div>';
+					else echo '<div style="margin-top:5px;"><img class="segura" src="'.CodificaUrlImg('/images/empresa1.jpg').'"/><img class="segura" src="'.CodificaUrlImg('/images/empresa2.jpg').'"/><img class="segura" src="'.CodificaUrlImg('/images/empresa3.jpg').'"/></div>';
 					echo '</div></div>';
 				}else{
 					echo '<div>';

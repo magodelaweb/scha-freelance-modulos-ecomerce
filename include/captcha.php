@@ -9,30 +9,28 @@ session_start();
 * Updated: 07/02/07
 * Requirements: PHP 4/5 with GD and FreeType libraries
 * Link: http://www.white-hat-web-design.co.uk/articles/php-captcha.php
-* 
-* This program is free software; you can redistribute it and/or 
-* modify it under the terms of the GNU General Public License 
-* as published by the Free Software Foundation; either version 2 
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public License
+* as published by the Free Software Foundation; either version 2
 * of the License, or (at your option) any later version.
-* 
-* This program is distributed in the hope that it will be useful, 
-* but WITHOUT ANY WARRANTY; without even the implied warranty of 
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
-* GNU General Public License for more details: 
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details:
 * http://www.gnu.org/licenses/gpl.html
 *
 */
 
 class CaptchaSecurityImages {
-
-	var $font = './monofont.ttf';
-
+	var $font='monofont.ttf';//$font=realpath('monofont.ttf');
 	function generateCode($characters) {
 		/* list all possible characters, similar looking characters and vowels have been removed */
 		$possible = '23456789bcdfghjkmnpqrstvwxyz';
 		$code = '';
 		$i = 0;
-		while ($i < $characters) { 
+		while ($i < $characters) {
 			$code .= substr($possible, mt_rand(0, strlen($possible)-1), 1);
 			$i++;
 		}
@@ -40,6 +38,7 @@ class CaptchaSecurityImages {
 	}
 
 	function CaptchaSecurityImages($width='120',$height='40',$characters='6') {
+		$this->font=realpath('monofont.ttf');
 		$code = $this->generateCode($characters);
 		/* font size will be 75% of the image height */
 		$font_size = $height * 0.75;

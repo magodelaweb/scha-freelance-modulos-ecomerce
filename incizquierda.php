@@ -3,7 +3,7 @@
 	      <p class="title">VENTA DE EQUIPOS:</p>
 		  <div class="textocont w7"><p class="texto">
 		  <?php while($info=$aclass->respuesta()){
-			  echo '- <a href="'.$contenedor.'/'.$info[2].'" '.((url_amigable($info[2])==$paramSec)?'class="current"':'').'>'.$info[1].'</a><br/>';
+			  echo '- <a href="/'.$info[2].'" '.((url_amigable($info[2])==$paramSec)?'class="current"':'').'>'.$info[1].'</a><br/>';
 		  }?>
 		  </p></div>
 </div>
