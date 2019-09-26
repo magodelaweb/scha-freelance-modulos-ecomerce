@@ -336,7 +336,9 @@ p.texto{ font-size:11px; line-height:1.5em;}
 					display: block;
 					text-align:center;
 			}*/
-
+			.image-container{
+				margin-left: 1em;
+			}
 }
 @media (max-width: 640px){
 	.cajita-header .cajitacont p.finantexto{
@@ -681,7 +683,7 @@ p.texto{ font-size:11px; line-height:1.5em;}
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    /*justify-content: space-around;*/
     align-items: stretch;
 }
 .f-fila{

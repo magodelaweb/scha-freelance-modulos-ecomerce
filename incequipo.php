@@ -2,10 +2,10 @@
 $sql = "Select c.ccodcontenido,c.cnomcontenido,c.camicontenido,c.crescontenido,c.curlcontenido,s.ccodseccion,c.cimgcontenido,c.ccodmodulo,c.dfeccontenido,c.ctipcontenido,c.curlcontenido FROM contenido c, seccioncontenido s, seccion se where c.ccodcontenido=s.ccodcontenido and  c.cestcontenido='1' and se.ccodseccion = s.ccodseccion and se.camiseccion ='$paramSec' order by c.ccodcontenido desc";
 $aclass->consulta($sql);
 $numreg = $aclass->filas();
+echo '<div class="titdet"><p>'.strtoupper($paramSec).'</p></div>';
 ?>
-	   <div style="clear:both; overflow:hidden;">
+	   <div style="clear:both; overflow:hidden;" class="image-container">
 	    <?php
-		echo '<div class="titdet"><p>'.strtoupper($paramSec).'</p></div>';
 		if($numreg>0){
 		 $i = 1;
 		 while($info=$aclass->respuesta()){

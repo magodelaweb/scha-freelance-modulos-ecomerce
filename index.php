@@ -15,7 +15,7 @@ $bclass = new conexionClass;
 
 //$contenedor = ($_SERVER["SERVER_NAME"]=='localhost' || $_SERVER["SERVER_NAME"]=='www.nslatino.com')?'/schasoci':'';
 
-$paramSec = isset($_GET["idsec"])?$_GET["idsec"]:"inicio";
+$paramSec = isset($_GET["idsec"])?$_GET["idsec"]:"home";
 /*echo "<script language='JavaScript'>
                 alert('paramSec: ".$paramSec."');
                 </script>";*/

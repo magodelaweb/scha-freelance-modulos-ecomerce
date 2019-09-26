@@ -4,7 +4,7 @@ $aclass->consulta($q);
 $aclass2=clone $aclass;
 $aclass2->consulta($q);
 ?>
-<div id="logo"><a href="/inicio/schasoci"><img src="/images/logo.png"/></a></div>
+<div id="logo"><a href="/home"><img src="/images/logo.png"/></a></div>
 <div>
 	   <ul class="sf-menu sf-js-enabled sf-arrows hidden">
 	    <?php
@@ -18,7 +18,7 @@ $aclass2->consulta($q);
 	    <?php
 			while($info=$aclass2->respuesta()){
 				echo '<li><a href="/'.$info[2].'" class="'.(($info[2]==$paramSec)?"current":"").'">
-				<img src="/images/'.$info[1].'.png"/><span>'.$info[1].'</span>
+				<img src="/images/'.strtolower($info[1]).'.png"/><span>'.$info[1].'</span>
 				</a></li>';
 			}
 		?>
