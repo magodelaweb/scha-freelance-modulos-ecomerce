@@ -166,18 +166,23 @@ p.texto{ font-size:11px; line-height:1.5em;}
 .cajitacont{ padding:8px 0 0 0;}
 .cajitacont p.finan{ color:#FFF; text-align:center; padding-left:50px;}
 .cajitacont p.finantitle{ background:url('../images/finan-min.png') top left no-repeat; font-size:18px; padding-bottom:15px; border-bottom:1px solid #FFF;}
-.cajitacont p.finantexto{ background:url('../images/fono-min.png') center left no-repeat; font-size:14px; padding-top:10px;}
+.cajitacont p.finantexto{ background:url('../images/fono-min.png') center left no-repeat; font-size:12px; padding-top:10px;}
 .fila{ margin-top:8px; height:177px; display:block;}
 .celda{ width:171px; margin:8px 8px 0 0; height:187px; background:url('../images/fondomenu.png');}
+.celda-det{ width:171px; margin:8px 8px 0 0; background:url('../images/fondomenu.png');}
 .celdacont{ padding: 8px 9px 0 8px;}
-.celdadet{ padding: 8px 31px 0 0;}
+.celdadet{ padding: 8px 9px 0 8px;}
 .celdacont p{ padding-top:10px; text-align:center; font: 12px "Verdana"; color:#FFF;}
 #pagina{ margin-top:10px;}
 #pagina a{padding:8px; text-align:center; color:#FFF; font:10px 'Verdana'; text-decoration:none; background:#002b6e;}
 #pagina a:hover,#pagina a.current{ background:#c7450c;}
 .titdet{ background-color:#00378a; /*height:52px; width:100%; */margin-top:8px; /*min-width:711px;*/padding-bottom: 0.7em;}
 .titdet p{ color:#FFF; font-size:22px; padding:15px 0 0 24px;}
-.textdet{ padding:10px 0 8px 26px; min-height:313px; overflow:hidden; height:0 auto !important; background:url('../images/fondodetalle.png') repeat 100% center;}
+.textdet{ padding:10px 0 8px 26px; /*min-height:0px;*/ overflow:hidden; height:0 auto !important; background:url('../images/fondodetalle.png') repeat 100% center;
+		margin-top: 0;
+		margin-left: 0em;
+    width: calc(100% - 1em - 26px);
+}
 .textblog{ min-height:20px; overflow:hidden; height:0 auto !important; background:url('../images/fondodetalle.png') repeat 100% center; border-bottom:1px solid #00378a;}
 .textdet p{ color:#000; font-weight:bold;}
 .textblog div,.textblog p{ padding:10px 18px 8px 20px; font: 13px Arial; text-align:justify; line-height:1.4em;}
@@ -202,12 +207,22 @@ p.texto{ font-size:11px; line-height:1.5em;}
 	padding-right: 5px;
 }
 #centralcont .contenedor-left .textblog img.segura{
-	    width: 33.1%;
+	width: 32.1%;
+	padding: 1px;
 }
 .cajita-header{
 	display: none;
 }
+.cajita-header .rrss-header img{
+	width: 60px;
+	height: 60px;
+	margin-top: -0.7em;
+}
 @media (max-width: 767px){
+	.textdet{
+		margin-left: 1em;
+    width: calc(100% - 2em - 26px);
+	}
 	.cajita-header{
 		width: 100%  !important;
 	  margin: 0;
@@ -217,15 +232,19 @@ p.texto{ font-size:11px; line-height:1.5em;}
 	}
 	.cajita-header .cajitacont{
 		display: flex;
+		width: calc(100% - 1em);
+    justify-content: space-around;
 	}
 	.cajita-header .cajitacont p.finantexto{
 		padding-top:unset;
-		margin-left: 20px;
+		margin-left: 0.5em;
+		padding-left: 40px;
 	}
 	.cajita-header .cajitacont p.finantitle{
+		margin-top: .4em;
 		padding-top:unset;
 		padding-bottom:unset;
-		padding-left: 40px;
+		padding-left: 20px;
 		background: url(../images/finan-min.png) center left no-repeat;
 	}
 	.cajita-header p{
@@ -237,6 +256,7 @@ p.texto{ font-size:11px; line-height:1.5em;}
 	}
 	.cajita-header .rrss-header{
 		display: flex;
+		margin: 0 -20px 0 -40px;
 	}
 	.cajita-header .rrss-header a{
 		padding-left: 1em;
@@ -256,7 +276,7 @@ p.texto{ font-size:11px; line-height:1.5em;}
  #footerleft p,#footerright{ text-align:center; color:#FFF;}
  .menuIzq{ float:none;}
  .contenedor-margen{
- 	margin-top: 240px;
+ 	margin-top: 260px;
  }
  .contenedor-left{
  	margin-left: unset;
@@ -312,33 +332,9 @@ p.texto{ font-size:11px; line-height:1.5em;}
 		width: 200px;
     height: 80px;
 	}
-
-	/*table {
-					width:100%;
-			}
-			thead {
-					display: none;
-			}
-			tr:nth-of-type(2n) {
-					background-color: inherit;
-			}
-			tr td:first-child {
-					background: #f0f0f0;
-					font-weight:bold;
-					font-size:1.3em;
-			}
-			tbody td {
-					display: block;
-					text-align:center;
-			}
-			tbody td:before {
-					content: attr(data-th);
-					display: block;
-					text-align:center;
-			}*/
-			.image-container{
-				margin-left: 1em;
-			}
+	.image-container{
+		margin-left: 1em;
+	}
 }
 @media (max-width: 640px){
 	.cajita-header .cajitacont p.finantexto{
@@ -346,11 +342,11 @@ p.texto{ font-size:11px; line-height:1.5em;}
 		padding-left: 0;
 	}
 	.cajita-header .cajitacont p.finantitle{
-		font-size: 16px;
+		font-size: 12px;
 		width: 9em;
 		background: unset;
 		padding-left: 0;
-		padding-right: 5px;
+		padding-right: 0.1em;
 	}
 	.cajita-header .rrss-header a{
 		padding-left: 2px;
@@ -360,9 +356,12 @@ p.texto{ font-size:11px; line-height:1.5em;}
 		padding-left: 2px;
 		padding-right: 2px;
 	}
+	.cajita-header .rrss-header{
+		margin: 0;
+	}
 }
 @media (max-width: 480px){
-	.cajita-header .cajitacont p.finantitle, #logo,#footer,#pxl{
+	#logo,#footer,#pxl{
 		display: none;
 	}
   #menu ul.iconos{
@@ -370,10 +369,10 @@ p.texto{ font-size:11px; line-height:1.5em;}
 		width: calc(100% - 50px) !important;
 	}
 	.contenedor-margen {
-    margin-top: 140px;
+    margin-top: 150px;
 }
 }
-.naranja{background:#f5540d;height: 130px;}
+.naranja{background:#f5540d;height: 140px;}
 
 /*Top*/
 #toTop {
@@ -433,7 +432,11 @@ p.texto{ font-size:11px; line-height:1.5em;}
  	height: unset;
  }
  #menu ul.iconos li a span{
-	 display: none;
+	 /*display: none;*/
+	  color: black;
+    font-weight: bold;
+    display: block;
+    text-transform: uppercase;
  }
 }
 
@@ -687,18 +690,18 @@ p.texto{ font-size:11px; line-height:1.5em;}
     align-items: stretch;
 }
 .f-fila{
-		width: calc(1em + 153px);
+		width: calc(1em + 148px);
 }
-.celdacont a img.segura{
-		width: 153px;
-		height: calc(0.75 * 153px);
+.celdacont a img.segura, .celdadet a img.segura{
+		width: 148px;
+		height: calc(0.75 * 148px);
 }
-.celdacont a.loader{
+.celdacont a.loader, .celdadet a.loader{
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 153px;
-		height: calc(0.75 * 153px);
+		width: 148px;
+		height: calc(0.75 * 148px);
 }
 .celdacont a img.segura#loader{
 		width: 32px;
@@ -707,66 +710,124 @@ p.texto{ font-size:11px; line-height:1.5em;}
 
 @media (min-width: 885px) and (max-width: 979px){
 	.f-fila{
-			width: calc(1em + 130px);
+			width: calc(1em + 20px + 12vw);
 	}
-	.celdacont a img.segura{
-			width: 130px;
-			height: calc(0.75 * 130px);
+	.celdacont a img.segura, .celdadet a img.segura{
+			width: calc(20px + 12vw);
+			height: calc(0.75 * (20px + 12vw));
 	}
-	.celdacont a.loader{
-			width: 130px;
-			height: calc(0.75 * 130px);
+	.celdacont a.loader, .celdadet a.loader{
+			width: calc(20px + 12vw);
+			height: calc(0.75 * (20px + 12vw));
 	}
 }
 @media (min-width: 768px) and (max-width: 884px){
 	.f-fila{
-			width: calc(1em + 143px);
+			width: calc(1em + (10px + 11.3vw));
 	}
-	.celdacont a img.segura{
-			width: 143px;
-			height: calc(0.75 * 143px);
+	.celdacont a img.segura, .celdadet a img.segura{
+			width: calc(10px + 11.3vw);
+			height: calc(0.75 * (10px + 11.3vw));
 	}
-	.celdacont a.loader{
-			width: 143px;
-			height: calc(0.75 * 143px);
+	.celdacont a.loader, .celdadet a.loader{
+			width: calc(10px + 11.3vw);
+			height: calc(0.75 * (10px + 11.3vw));
 	}
 }
-@media (min-width: 633px) and (max-width: 726px){
+@media (min-width: 633px) and (max-width: 767px){
 	.f-fila{
-			width: calc(1em + 130px);
+			width: calc(1em + (18px + 16.3vw));
 	}
-	.celdacont a img.segura{
-			width: 130px;
-			height: calc(0.75 * 130px);
+	.celdacont a img.segura, .celdadet a img.segura{
+			width: calc(18px + 16.3vw);
+			height: calc(0.75 * (18px + 16.3vw));
 	}
-	.celdacont a.loader{
-			width: 130px;
-			height: calc(0.75 * 130px);
+	.celdacont a.loader, .celdadet a.loader{
+			width: calc(18px + 16.3vw);
+			height: calc(0.75 * (18px + 16.3vw));
 	}
 }
 @media (min-width: 579px) and (max-width: 632px){
 	.f-fila{
-			width: calc(1em + 160px);
+			width: calc(1em + (18px + 15.6vw));
 	}
-	.celdacont a img.segura{
-			width: 160px;
-			height: calc(0.75 * 160px);
+	.celdacont a img.segura, .celdadet a img.segura{
+			width: calc(18px + 15.6vw);
+			height: calc(0.75 * (18px + 15.6vw));
 	}
-	.celdacont a.loader{
-			width: 160px;
-			height: calc(0.75 * 160px);
+	.celdacont a.loader, .celdadet a.loader{
+			width: calc(18px + 15.6vw);
+			height: calc(0.75 * (18px + 15.6vw));
 	}
 }
-@media (min-width: 320px) and (max-width: 547px){
+@media (min-width: 320px) and (max-width: 578px){
 	.f-fila{
-			width: calc(1em + 130px);
+			width: calc(1em + (14px + 18.1vw));
 	}
-	.celdacont a img.segura{
-			width: 130px;
-			height: calc(0.75 * 130px);
+	.celdacont a img.segura, .celdadet a img.segura{
+			width: calc(14px + 18.1vw);
+			height: calc(0.75 * (14px + 18.1vw));
 	}
-	.celdacont a.loader{
-			width: 130px;
-			height: calc(0.75 * 130px);
+	.celdacont a.loader, .celdadet a.loader{
+			width: calc(14px + 18.1vw);
+			height: calc(0.75 * (14px + 18.1vw));
+	}
+}
+@media (max-width: 319px){
+	.f-fila{
+			width: calc(1em + (3px + 18.1vw));
+	}
+	.celdacont a img.segura, .celdadet a img.segura{
+			width: calc(3px + 18.1vw);
+			height: calc(0.75 * (3px + 18.1vw));
+	}
+	.celdacont a.loader, .celdadet a.loader{
+			width: calc(3px + 18.1vw);
+			height: calc(0.75 * (3px + 18.1vw));
+	}
+}
+.ctnmap{
+	width:100%;
+}
+@media (max-width: 767px){
+	.image-container{
+		width:calc(100% - 2em);
+	}
+	.titdet {
+		margin-left: 1em;
+    /*margin-top: 1.3em;*/
+		width:calc(100% - 2em);
+	}
+}
+@media (min-width: 768px){
+	.image-container{
+		width:calc(100% - 1em);
+	}
+	.titdet {
+		width:calc(100% - 1em);
+	}
+}
+
+
+@media (max-width: 480px){
+	#menu ul.iconos li a span {
+    font-size: 0.8em;
+	}
+	.cajita-header .rrss-header img{
+		width: 10vw;
+		height: 10vw;
+		margin-top: 0;
+	}
+	.cajita-header .cajitacont p.finantexto {
+    padding-left: 0;
+	}
+}
+@media (max-width: 400px){
+	#menu ul.iconos {
+    margin-left: 0;
+		width: 100% !important;
+	}
+	.tss-label{
+		display: none !important;
 	}
 }

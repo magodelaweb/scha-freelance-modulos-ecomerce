@@ -27,23 +27,23 @@ $aclass2->consulta($q);
 <div class="cajita naranja cajita-header">
 	    <div class="cajitacont">
 		  <p class="finan finantitle">FINANCIAMIENTO<br/>DIRECTO</p>
-		  <p class="finan finantexto">Fijo: (511) 254-0995<br/>
+			<div class="rrss rrss-header">
+ 		 	<a href="https://www.facebook.com/samuel.chamochumbi.asociados"
+ 		 	    title="Ir al fan page de schasociados.com en facebook" target="_blank"><picture>
+ 		 	    <source srcset="/images/f_logo.png">
+ 		 	    <img srcset="/images/f_logo.png" alt="Ir al fan page de schasociados.com en facebook"
+ 		 	    height="25" width="25">
+ 		 	</picture></a>
+ 		 	<a href="https://wa.me/51981578763"
+ 		 	    title="Escribir al WhatsApp de schasociados.com" target="_blank"><picture>
+ 		 	    <source srcset="/images/w_logo.png">
+ 		 	    <img srcset="/images/w_logo.png" alt="Escribir al WhatsApp de schasociados.com"
+ 		 	    height="25" width="25">
+ 		 	</picture></a>
+ 		 </div>
+		  <p class="finan finantexto">Fijo: 254-0995<br/>
 		  	Cel: 965-903000<br/>
-			RPM: #965-903000<!-- <br/>
-			ENTEL: 981-578763 --></p>
-		 </div>
-		 <div class="rrss rrss-header">
-		 	<a href="https://www.facebook.com/samuel.chamochumbi.asociados"
-		 	    title="Ir al fan page de schasociados.com en facebook" target="_blank"><picture>
-		 	    <source srcset="/images/f_logo.png">
-		 	    <img srcset="/images/f_logo.png" alt="Ir al fan page de schasociados.com en facebook"
-		 	    height="60" width="60">
-		 	</picture></a>
-		 	<a href="https://wa.me/51981578763"
-		 	    title="Escribir al WhatsApp de schasociados.com" target="_blank"><picture>
-		 	    <source srcset="/images/w_logo.png">
-		 	    <img srcset="/images/w_logo.png" alt="Escribir al WhatsApp de schasociados.com"
-		 	    height="60" width="60">
-		 	</picture></a>
+			RPM: #965-903000<br/>
+			ENTEL: 981-578763</p>
 		 </div>
 </div>

@@ -12,8 +12,8 @@
 		  <p class="finan finantitle">FINANCIAMIENTO<br/>DIRECTO</p>
 		  <p class="finan finantexto">Fijo: (511) 254-0995<br/>
 		  	Cel: 965-903000<br/>
-			RPM: #965-903000<!-- <br/>
-			ENTEL: 981-578763 --></p>
+			RPM: #965-903000<br/>
+			ENTEL: 981-578763</p>
 		 </div>
 </div>
 <div class="rrss">

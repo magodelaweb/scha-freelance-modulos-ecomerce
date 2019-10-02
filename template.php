@@ -174,7 +174,7 @@
     <div id="central">
 	 <div id="centralcont"><?php include("inccentral.php");?></div>
 	</div>
-	<?php include("inccuadro.php");?>
+	<?php //include("inccuadro.php");?>
 	<div id="footer">
 	 <div id="footercont"><?php include("incfooter.php");?></div>
 	</div>

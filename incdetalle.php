@@ -15,14 +15,16 @@
        ?></div>
 </div>
 <div style="clear:both; overflow:hidden;" class="image-container">
-	    <?php
-		  $aclass->consulta("UPDATE contenido SET nviscontenido = nviscontenido + 1  WHERE ccodcontenido = '".$info[0]."'");
-		  $aclass->consulta("select * from contenidogaleria where ccodcontenido='".$info[0]."' order by ccodmodulo,ccodcontenido");
-		  $i = 1;
-		  while($info = $aclass->respuesta()){
-			 echo '<div class="left f-fila"><div class="celdadet"><a class="segura" id="img" href="'.CodificaUrlImg($info['cimggaleria']).'"><img class="segura" src="'.CodificaUrlImg(str_replace('fotos','thumbs',$info['cimggaleria'])).'"  width="154" height="116"/></div></div>';
-			 $i++;
-		  }
-		?>
+
+    <?php
+    $aclass->consulta("UPDATE contenido SET nviscontenido = nviscontenido + 1  WHERE ccodcontenido = '".$info[0]."'");
+    $aclass->consulta("select * from contenidogaleria where ccodcontenido='".$info[0]."' order by ccodmodulo,ccodcontenido");
+    $i = 1;
+    while($info = $aclass->respuesta()){
+     echo '<div><div class="celda-det left f-fila"><div class="celdadet"><a class="segura" id="img" href="'.CodificaUrlImg($info['cimggaleria']).'"><img class="segura" src="'.CodificaUrlImg(str_replace('fotos','thumbs',$info['cimggaleria'])).'"  width="154" height="116"/></div></div></div>';
+     $i++;
+    }
+    ?>
+
 </div>
 </div>

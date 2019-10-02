@@ -1,5 +1,5 @@
 <body>
-<div>
+<div class="ctnmap">
 	<div class="textblog" style="border:none;">
     <ul>
     <?php

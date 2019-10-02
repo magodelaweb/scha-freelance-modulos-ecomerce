@@ -1,5 +1,5 @@
 <?php
-if($paramSec=='inicio'){
+if($paramSec=='x'){
 ?>
 <div id="cuadro">
 	 <div id="cuadrocont">
