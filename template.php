@@ -63,7 +63,7 @@
         // max width of window
         windowMaxWidth: 768,
     });
-/*
+
       $('body').bind('cut copy paste', function (e) {
         $('#btnsec.btnsec').click();
         var urlscha="https://www.schasociados.com";
@@ -100,7 +100,7 @@
       	{
       		keyCtrl=false;
       	}
-      });*/
+      });
       decodecifconten();
 		});
 		function decodecifconten(){
