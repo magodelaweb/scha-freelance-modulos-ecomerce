@@ -46,7 +46,8 @@ function elimina(id)
 	var confirma = confirm('Desea eliminar este item?');
 	
 	if(confirma){
-		$.post("galerias_listado.php",{ idbuscar:'1', idpagina:$("#pg").val(),idpro:$('#idcodigo').val(),modulo:$("#selectmodulo").val(),page:$('#selectpage').val(),idpalabra:$("#palabra").val(),codigo:$("#codigo").val(),idfecha:$("#fecha").val(),idseccion:$("#selectseccion").val(),iditems:$("#nroitems").val(),iddel: id },function(data){$("#listado").html(data);})
+		$.post("galerias_listado.php",{ idbuscar:'1', idpagina:$("#pg").val(),idpro:$('#idcodigo').val(),modulo:$("#selectmodulo").val(),page:$('#selectpage').val(),idpalabra:$("#palabra").val(),codigo:$("#codigo").val(),idfecha:$("#fecha").val(),idseccion:$("#selectseccion").val(),iditems:$("#nroitems").val(),iddel: id },function(data){$("#listado").html(data);});
+		location.reload();
 	}
 }
 function estado(id)

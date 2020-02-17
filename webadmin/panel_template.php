@@ -3,10 +3,19 @@
 <title>JUVAME CMS: Sistema de administraci&oacute;n de contenidos</title>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 <meta http-equiv="Content-Type" content="text/xml; charset=ISO-8859-15">
-<link  href='estilos/estilo.css'     rel='stylesheet' type='text/css'>
+<!--link rel="stylesheet" type="text/css" href="plugins/core/bootstrap.css" /-->
+
+<link  href='estilos/estilo.css' rel='stylesheet' type='text/css'>
 <script type='text/javascript' src='include/js/jsweb.js' ></script>
 <!--script type="text/javascript" src="include/js/jquery.js"></script-->
 <script type="text/javascript" src="../js/jquery.js"></script>
+  <!-- JS Global Compulsory -->
+  <script src="plugins/core/jquery.min.js"></script>
+  <script src="plugins/core/jquery-migrate.min.js"></script>
+  <script src="plugins/core/popper.min.js"></script>
+  <script src="plugins/core/bootstrap.min.js"></script>
+
+
 <script type="text/javascript" src="include/js/jquery.colorize.js" ></script>
 <script type="text/javascript" src="include/js/jquery.checkboxtree.js" ></script>
 
@@ -21,9 +30,17 @@
 <script type="text/javascript" src="../fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
 <link rel="stylesheet" type="text/css" href="../fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
 
+<link rel="stylesheet" type="text/css" href="plugins/dropzone/basic.css" />
+<link rel="stylesheet" type="text/css" href="plugins/dropzone/dropzone.css" />
+<!-- Google Fonts -->
+<link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<!-- CSS Implementing Plugins -->
+<link rel="stylesheet" href="plugins/font-awesome/css/fontawesome-all.min.css">
+<link  href='plugins/tema/theme.min.css' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../css/scha2020.css?v=1602201">
 </head>
 <body>
-<div id="fondo">
+<div id="fondo" style="height: unset;">
 <?php
 define("VAR_NROITEMS",30);
 define('fechahoy',date('d-m-Y'));
@@ -108,5 +125,14 @@ if ($stylo =='3')
 		});
 	});
 </script>
+<script>
+	$(document).on('ready', function () {
+		// initialization of dropzone file attach module
+		$.HSCore.components.HSDropzone.init('.u-dropzone');		
+	});
+</script>
+<script type="text/javascript" src="plugins/core/hs.core.js"></script>
+<script type="text/javascript" src="plugins/dropzone/front/dropzone.js"></script>
+<script type="text/javascript" src="plugins/tema/theme.min.js"></script>
 </body>
 </html>

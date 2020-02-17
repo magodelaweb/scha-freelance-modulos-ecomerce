@@ -2,7 +2,7 @@
 /***********************************/
 ob_start();
 session_start();
-error_reporting(0);
+//error_reporting(0);
 include "../config.php";
 include "include/funciones.php";
 /***********************************/
@@ -16,7 +16,7 @@ function procesar_formulario($form_entrada){
    $respuesta = new xajaxResponse('ISO-8859-1');
    $error_form = "";
    if ($form_entrada["email"]=="")			$error_form = " * Escriba correo electronico";
-   else if ($form_entrada["clave"]=="")		$error_form = " * Escriba su Contraseña";
+   else if ($form_entrada["clave"]=="")		$error_form = " * Escriba su Contraseï¿½a";
    else
    {
    		$password = md5($form_entrada['clave']);
@@ -68,7 +68,7 @@ function procesar_formulario($form_entrada){
 		}
 		else
 		{
-			$error_form = " Correo Electronico y/o contraseña son incorrectos.";
+			$error_form = " Correo Electronico y/o contraseï¿½a son incorrectos.";
 		}
 	}
 	if ($error_form!="")
@@ -89,7 +89,7 @@ if (isset($_SESSION['webuser_aut'])&&($_SESSION['webuser_aut']=='1')) tep_redire
 ?>
 <html>
 <head>
-<title>JUVAME CMS: Sistema de administración de contenidos</title>
+<title>JUVAME CMS: Sistema de administraciï¿½n de contenidos</title>
 <!--meta charset="ISO-8859-1"-->
 <link  href='estilos/estilo.css'     rel='stylesheet' type='text/css'>
 </head>
